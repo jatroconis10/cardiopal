@@ -7,8 +7,25 @@ package co.edu.uniandes.arquiys.backend.dto;
 
 /**
  *
- * @author ja.troconis10
+ * @author Ricardo
  */
-public class Paciente {
+public class BrazaleteDTO {
+    
+    private long Id;
+
+ 
+    
+    public BrazaleteDTO()
+    {
+        
+    }
+    
+       public long getId() {
+        return Id;
+    }
+
+    public void setId(long Id) {
+        this.Id = Id;
+    }
     
 }
