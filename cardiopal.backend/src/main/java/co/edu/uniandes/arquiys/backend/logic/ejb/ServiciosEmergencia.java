@@ -7,6 +7,7 @@ package co.edu.uniandes.arquiys.backend.logic.ejb;
 
 import co.edu.uniandes.arquiys.backend.dto.EmergenciaDTO;
 import co.edu.uniandes.arquiys.backend.logic.interfaces.IServiciosEmergencia;
+import java.util.ArrayList;
 import java.util.List;
 
 /**
@@ -15,29 +16,49 @@ import java.util.List;
  */
 public class ServiciosEmergencia implements IServiciosEmergencia {
 
+    private List<EmergenciaDTO> emergencias;
+    public ServiciosEmergencia()
+            {
+                emergencias = new ArrayList<EmergenciaDTO>();
+            }
     @Override
-    public EmergenciaDTO getEmergencia(int idEmergencia) {
-         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates. 
+    public EmergenciaDTO getEmergencia(Long idEmergencia) {
+        return emergencias.get(idEmergencia.intValue() );
     }
 
     @Override
-    public EmergenciaDTO updateEmergencia(int idEmergencia) {
-     throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    public EmergenciaDTO updateEmergencia(EmergenciaDTO emergencia) {
+        EmergenciaDTO emergenciaViejo = emergencias.get( emergencia.getId().intValue());
+        
+        emergenciaViejo.setDescripcion(emergencia.getDescripcion());
+        return emergenciaViejo;
+        
     }
 
     @Override
-    public void deleteEmergencia(int idEmergencia) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    public void deleteEmergencia(Long idEmergencia) {
+        
+        emergencias.remove( idEmergencia.intValue());
     }
 
     @Override
-    public EmergenciaDTO createEmergencia() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    public EmergenciaDTO createEmergencia(EmergenciaDTO emergencia) {
+        
+        if(emergencia.getId() == null)
+        {
+            Long idNuevo = new Long(emergencias.size());
+            emergencia.setId(idNuevo);
+        }
+        emergencias.add(emergencia);
+        return emergencia;
+        
     }
 
     @Override
     public List<EmergenciaDTO> getAll() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+
+       return emergencias;
+
     }
     
 }

@@ -7,6 +7,7 @@ package co.edu.uniandes.arquiys.backend.logic.ejb;
 
 import co.edu.uniandes.arquiys.backend.dto.MedicoDTO;
 import co.edu.uniandes.arquiys.backend.logic.interfaces.IServiciosMedico;
+import java.util.ArrayList;
 import java.util.List;
 
 /**
@@ -15,29 +16,50 @@ import java.util.List;
  */
 public class ServiciosMedico implements IServiciosMedico {
 
+    private List<MedicoDTO> medicos;
+    public ServiciosMedico()
+            {
+                medicos = new ArrayList<MedicoDTO>();
+            }
     @Override
-    public MedicoDTO getMedico(int idMedico) {
-         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates. 
+    public MedicoDTO getMedico(Long idMedico) {
+        return medicos.get(idMedico.intValue() );
     }
 
     @Override
-    public MedicoDTO updateMedico(int idMedico) {
-     throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    public MedicoDTO updateMedico(MedicoDTO medico) {
+        MedicoDTO medicoViejo = medicos.get( medico.getId().intValue());
+        
+        medicoViejo.setNombre(medico.getNombre());
+        medicoViejo.setPacientes(medico.getPacientes());
+        return medicoViejo;
+        
     }
 
     @Override
-    public void deleteMedico(int idMedico) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    public void deleteMedico(Long idMedico) {
+        
+        medicos.remove( idMedico.intValue());
     }
 
     @Override
-    public MedicoDTO createMedico() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    public MedicoDTO createMedico(MedicoDTO medico) {
+        
+        if(medico.getId() == null)
+        {
+            Long idNuevo = new Long(medicos.size());
+            medico.setId(idNuevo);
+        }
+        medicos.add(medico);
+        return medico;
+        
     }
 
     @Override
     public List<MedicoDTO> getAll() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+
+       return medicos;
+
     }
     
 }

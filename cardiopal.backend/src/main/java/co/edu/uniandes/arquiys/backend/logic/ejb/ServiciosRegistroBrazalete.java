@@ -7,6 +7,7 @@ package co.edu.uniandes.arquiys.backend.logic.ejb;
 
 import co.edu.uniandes.arquiys.backend.dto.RegistroBrazaleteDTO;
 import co.edu.uniandes.arquiys.backend.logic.interfaces.IServiciosRegistroBrazalete;
+import java.util.ArrayList;
 import java.util.List;
 
 /**
@@ -15,29 +16,51 @@ import java.util.List;
  */
 public class ServiciosRegistroBrazalete implements IServiciosRegistroBrazalete {
 
+    private List<RegistroBrazaleteDTO> registroBrazaletes;
+    public ServiciosRegistroBrazalete()
+            {
+                registroBrazaletes = new ArrayList<RegistroBrazaleteDTO>();
+            }
     @Override
-    public RegistroBrazaleteDTO getRegistroBrazalete(int idRegistroBrazalete) {
-         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates. 
+    public RegistroBrazaleteDTO getRegistroBrazalete(Long idRegistroBrazalete) {
+        return registroBrazaletes.get(idRegistroBrazalete.intValue() );
     }
 
     @Override
-    public RegistroBrazaleteDTO updateRegistroBrazalete(int idRegistroBrazalete) {
-     throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    public RegistroBrazaleteDTO updateRegistroBrazalete(RegistroBrazaleteDTO registroBrazalete) {
+        RegistroBrazaleteDTO registroBrazaleteViejo = registroBrazaletes.get( registroBrazalete.getId().intValue());
+        
+        registroBrazaleteViejo.setFecha(registroBrazalete.getFecha());
+        registroBrazaleteViejo.setHistorial(registroBrazalete.getHistorial());
+        registroBrazaleteViejo.setRitmo(registroBrazalete.getRitmo());
+        return registroBrazaleteViejo;
+        
     }
 
     @Override
-    public void deleteRegistroBrazalete(int idRegistroBrazalete) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    public void deleteRegistroBrazalete(Long idRegistroBrazalete) {
+        
+        registroBrazaletes.remove( idRegistroBrazalete.intValue());
     }
 
     @Override
-    public RegistroBrazaleteDTO createRegistroBrazalete() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    public RegistroBrazaleteDTO createRegistroBrazalete(RegistroBrazaleteDTO registroBrazalete) {
+        
+        if(registroBrazalete.getId() == null)
+        {
+            Long idNuevo = new Long(registroBrazaletes.size());
+            registroBrazalete.setId(idNuevo);
+        }
+        registroBrazaletes.add(registroBrazalete);
+        return registroBrazalete;
+        
     }
 
     @Override
     public List<RegistroBrazaleteDTO> getAll() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+
+       return registroBrazaletes;
+
     }
     
 }

@@ -11,7 +11,7 @@ package co.edu.uniandes.arquiys.backend.dto;
  */
 public class MarcapasoDTO {
     
-     private long Id;
+     private Long Id;
      private long ritmoAct;
      private long frecuencia;
      private final PacienteDTO usuario;
@@ -20,11 +20,11 @@ public class MarcapasoDTO {
     {
         this.usuario = usuario;
     }
-       public long getId() {
+       public Long getId() {
         return Id;
     }
 
-    public void setId(long Id) {
+    public void setId(Long Id) {
         this.Id = Id;
     }
       public long getRitmoAct() {

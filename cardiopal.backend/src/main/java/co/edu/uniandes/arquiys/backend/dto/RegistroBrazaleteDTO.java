@@ -13,6 +13,23 @@ import java.util.Date;
  */
 public class RegistroBrazaleteDTO {
     
+    private Long id;
+
+    public Long getId() {
+        return id;
+    }
+
+    public void setId(Long id) {
+        this.id = id;
+    }
+
+    public HistorialDTO getHistorial() {
+        return historial;
+    }
+
+    public void setHistorial(HistorialDTO historial) {
+        this.historial = historial;
+    }
     private long ritmo;
     private Date        fecha;
     private HistorialDTO        historial;

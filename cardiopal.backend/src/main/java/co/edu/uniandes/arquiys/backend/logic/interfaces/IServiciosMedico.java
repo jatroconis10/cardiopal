@@ -13,10 +13,10 @@ import java.util.List;
  */
 public interface IServiciosMedico {
     
-    public MedicoDTO getMedico(int idMedico);
-    public MedicoDTO createMedico();
-    public void deleteMedico(int idMedico);
-    public MedicoDTO updateMedico(int idMedico);
+    public MedicoDTO getMedico(Long idMedico);
+    public MedicoDTO createMedico(MedicoDTO medico);
+    public void deleteMedico(Long idMedico);
+    public MedicoDTO updateMedico(MedicoDTO medico);
     public List<MedicoDTO> getAll();
     
     

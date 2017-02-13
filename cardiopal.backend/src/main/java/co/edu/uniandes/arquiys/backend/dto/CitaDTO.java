@@ -13,21 +13,21 @@ import java.util.Date;
  */
 public class CitaDTO {
     
-     private long Id;
+     private Long Id;
      
      private Date fecha;
      
-     private final PacienteDTO usuario;
+     private PacienteDTO usuario;
 
     public CitaDTO(PacienteDTO usuario)
     {
         this.usuario = usuario;
     }
-       public long getId() {
+       public Long getId() {
         return Id;
     }
 
-    public void setId(long Id) {
+    public void setId(Long Id) {
         this.Id = Id;
     }
     
@@ -40,5 +40,9 @@ public class CitaDTO {
 
     public void setFecha(Date fecha) {
         this.fecha = fecha;
+    }
+    public void setUsuario(PacienteDTO paciente)
+    {
+        this.usuario = paciente;
     }
 }

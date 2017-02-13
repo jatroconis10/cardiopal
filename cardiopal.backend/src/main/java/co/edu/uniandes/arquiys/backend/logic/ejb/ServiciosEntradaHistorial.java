@@ -7,6 +7,7 @@ package co.edu.uniandes.arquiys.backend.logic.ejb;
 
 import co.edu.uniandes.arquiys.backend.dto.EntradaHistorialDTO;
 import co.edu.uniandes.arquiys.backend.logic.interfaces.IServiciosEntradaHistorial;
+import java.util.ArrayList;
 import java.util.List;
 
 /**
@@ -15,29 +16,50 @@ import java.util.List;
  */
 public class ServiciosEntradaHistorial implements IServiciosEntradaHistorial {
 
+    private List<EntradaHistorialDTO> entradaHistorials;
+    public ServiciosEntradaHistorial()
+            {
+                entradaHistorials = new ArrayList<EntradaHistorialDTO>();
+            }
     @Override
-    public EntradaHistorialDTO getEntradaHistorial(int idEntradaHistorial) {
-         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates. 
+    public EntradaHistorialDTO getEntradaHistorial(Long idEntradaHistorial) {
+        return entradaHistorials.get(idEntradaHistorial.intValue() );
     }
 
     @Override
-    public EntradaHistorialDTO updateEntradaHistorial(int idEntradaHistorial) {
-     throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    public EntradaHistorialDTO updateEntradaHistorial(EntradaHistorialDTO entradaHistorial) {
+        EntradaHistorialDTO entradaHistorialViejo = entradaHistorials.get( entradaHistorial.getId().intValue());
+        
+        entradaHistorialViejo.setInformacion(entradaHistorial.getInformacion());
+        entradaHistorialViejo.setTipo(entradaHistorial.getTipo());
+        return entradaHistorialViejo;
+        
     }
 
     @Override
-    public void deleteEntradaHistorial(int idEntradaHistorial) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    public void deleteEntradaHistorial(Long idEntradaHistorial) {
+        
+        entradaHistorials.remove( idEntradaHistorial.intValue());
     }
 
     @Override
-    public EntradaHistorialDTO createEntradaHistorial() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    public EntradaHistorialDTO createEntradaHistorial(EntradaHistorialDTO entradaHistorial) {
+        
+        if(entradaHistorial.getId() == null)
+        {
+            Long idNuevo = new Long(entradaHistorials.size());
+            entradaHistorial.setId(idNuevo);
+        }
+        entradaHistorials.add(entradaHistorial);
+        return entradaHistorial;
+        
     }
 
     @Override
     public List<EntradaHistorialDTO> getAll() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+
+       return entradaHistorials;
+
     }
     
 }

@@ -11,7 +11,7 @@ package co.edu.uniandes.arquiys.backend.dto;
  */
 public class BrazaleteDTO {
     
-    private long Id;
+    private Long Id;
 
  
     
@@ -20,11 +20,11 @@ public class BrazaleteDTO {
         
     }
     
-       public long getId() {
+       public Long getId() {
         return Id;
     }
 
-    public void setId(long Id) {
+    public void setId(Long Id) {
         this.Id = Id;
     }
     

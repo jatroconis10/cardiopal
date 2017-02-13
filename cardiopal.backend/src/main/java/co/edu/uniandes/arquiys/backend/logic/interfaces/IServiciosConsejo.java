@@ -13,9 +13,9 @@ import java.util.List;
  */
 public interface IServiciosConsejo {
     
-    public ConsejoDTO getConsejo(int idConsejo);
-    public ConsejoDTO updateConsejo(int idConsejo);
-    public void deleteConsejo(int idConsejo);
-    public ConsejoDTO createConsejo();
+    public ConsejoDTO getConsejo(Long idConsejo);
+    public ConsejoDTO updateConsejo(ConsejoDTO consejo);
+    public void deleteConsejo(Long idConsejo);
+    public ConsejoDTO createConsejo(ConsejoDTO consejo);
     public List<ConsejoDTO> getAll();
 }

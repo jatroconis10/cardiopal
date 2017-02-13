@@ -7,6 +7,7 @@ package co.edu.uniandes.arquiys.backend.logic.ejb;
 
 import co.edu.uniandes.arquiys.backend.dto.BrazaleteDTO;
 import co.edu.uniandes.arquiys.backend.logic.interfaces.IServiciosBrazalete;
+import java.util.ArrayList;
 import java.util.List;
 
 /**
@@ -15,29 +16,48 @@ import java.util.List;
  */
 public class ServiciosBrazalete implements IServiciosBrazalete {
 
+    private List<BrazaleteDTO> brazaletes;
+    public ServiciosBrazalete()
+            {
+                brazaletes = new ArrayList<BrazaleteDTO>();
+            }
     @Override
-    public BrazaleteDTO getBrazalete(int idBrazalete) {
-         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates. 
+    public BrazaleteDTO getBrazalete(Long idBrazalete) {
+        return brazaletes.get(idBrazalete.intValue() );
     }
 
     @Override
-    public BrazaleteDTO updateBrazalete(int idBrazalete) {
-     throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    public BrazaleteDTO updateBrazalete(BrazaleteDTO brazalete) {
+        BrazaleteDTO brazaleteViejo = brazaletes.get( brazalete.getId().intValue());
+        
+        return brazaleteViejo;
+        
     }
 
     @Override
-    public void deleteBrazalete(int idBrazalete) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    public void deleteBrazalete(Long idBrazalete) {
+        
+        brazaletes.remove( idBrazalete.intValue());
     }
 
     @Override
-    public BrazaleteDTO createBrazalete() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    public BrazaleteDTO createBrazalete(BrazaleteDTO brazalete) {
+        
+        if(brazalete.getId() == null)
+        {
+            Long idNuevo = new Long(brazaletes.size());
+            brazalete.setId(idNuevo);
+        }
+        brazaletes.add(brazalete);
+        return brazalete;
+        
     }
 
     @Override
     public List<BrazaleteDTO> getAll() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+
+       return brazaletes;
+
     }
     
 }

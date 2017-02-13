@@ -13,9 +13,9 @@ import java.util.List;
  */
 public interface IServiciosHistorial {
     
-    public HistorialDTO getHistorial(int idHistorial);
-    public HistorialDTO updateHistorial(int idHistorial);
-    public void deleteHistorial(int idHistorial);
-    public HistorialDTO createHistorial();
+    public HistorialDTO getHistorial(Long idHistorial);
+    public HistorialDTO updateHistorial(HistorialDTO historial);
+    public void deleteHistorial(Long idHistorial);
+    public HistorialDTO createHistorial(HistorialDTO historial);
     public List<HistorialDTO> getAll();
 }

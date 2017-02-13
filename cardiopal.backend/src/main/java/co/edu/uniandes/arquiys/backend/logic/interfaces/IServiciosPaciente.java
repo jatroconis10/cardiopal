@@ -13,9 +13,9 @@ import java.util.List;
  */
 public interface IServiciosPaciente {
     
-        public PacienteDTO createPaciente();
-    public PacienteDTO getPaciente(int idPaciente);
-    public PacienteDTO updatePaciente(int idPaciente);
-    public void deletePaciente(int idPaciente);
+        public PacienteDTO createPaciente(PacienteDTO paciente);
+    public PacienteDTO getPaciente(Long idPaciente);
+    public PacienteDTO updatePaciente(PacienteDTO paciente);
+    public void deletePaciente(Long idPaciente);
     public List<PacienteDTO> getAll();
 }

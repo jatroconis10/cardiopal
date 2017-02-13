@@ -14,7 +14,7 @@ import java.util.List;
 public class PacienteDTO {
 
     private String nombre;
-    private long Id;
+    private Long Id;
     private BrazaleteDTO brazalete;
     private List<MedicoDTO>  medicos;
     private List<CitaDTO>  citas;
@@ -59,11 +59,11 @@ public class PacienteDTO {
     }
     
      
-     public long getId() {
+     public Long getId() {
         return Id;
     }
 
-    public void setId(long Id) {
+    public void setId(Long Id) {
         this.Id = Id;
     }
      public BrazaleteDTO getBrazalete() {

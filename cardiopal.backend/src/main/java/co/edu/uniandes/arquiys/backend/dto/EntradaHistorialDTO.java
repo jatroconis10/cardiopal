@@ -12,7 +12,7 @@ package co.edu.uniandes.arquiys.backend.dto;
 public class EntradaHistorialDTO {
     
     private long tipo;
-    private long id;
+    private Long id;
     private String informacion;
     
     public EntradaHistorialDTO()
@@ -28,11 +28,11 @@ public class EntradaHistorialDTO {
         this.tipo = tipo;
     }
 
-    public long getId() {
+    public Long getId() {
         return id;
     }
 
-    public void setId(long id) {
+    public void setId(Long id) {
         this.id = id;
     }
 

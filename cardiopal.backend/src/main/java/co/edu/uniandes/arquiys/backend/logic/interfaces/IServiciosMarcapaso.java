@@ -13,9 +13,9 @@ import java.util.List;
  */
 public interface IServiciosMarcapaso {
     
-    public MarcapasoDTO getMarcapaso(int idMarcapaso);
-    public MarcapasoDTO updateMarcapaso(int idMarcapaso);
-    public void deleteMarcapaso(int idMarcapaso);
-    public MarcapasoDTO createMarcapaso();
+    public MarcapasoDTO getMarcapaso(Long idMarcapaso);
+    public MarcapasoDTO updateMarcapaso(MarcapasoDTO marcapaso);
+    public void deleteMarcapaso(Long idMarcapaso);
+    public MarcapasoDTO createMarcapaso(MarcapasoDTO marcapaso);
     public List<MarcapasoDTO> getAll();
 }

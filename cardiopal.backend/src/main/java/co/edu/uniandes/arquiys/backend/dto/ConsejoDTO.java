@@ -11,7 +11,7 @@ package co.edu.uniandes.arquiys.backend.dto;
  */
 public class ConsejoDTO {
     
-    private long id;
+    private Long id;
     private String consejo;
 
    
@@ -19,11 +19,11 @@ public class ConsejoDTO {
         this.consejo = consejo;
     }
     
-     public long getId() {
+     public Long getId() {
         return id;
     }
 
-    public void setId(long id) {
+    public void setId(Long id) {
         this.id = id;
     }
 

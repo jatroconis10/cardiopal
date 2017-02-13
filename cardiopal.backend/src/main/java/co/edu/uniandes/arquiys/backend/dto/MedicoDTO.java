@@ -12,7 +12,7 @@ import java.util.List;
  * @author Ricardo
  */
 public class MedicoDTO {
-    private long id;
+    private Long id;
     private String nombre;
     private List<PacienteDTO> pacientes;
 
@@ -22,11 +22,11 @@ public class MedicoDTO {
                 
             }
 
-    public long getId() {
+    public Long getId() {
         return id;
     }
 
-    public void setId(long id) {
+    public void setId(Long id) {
         this.id = id;
     }
     

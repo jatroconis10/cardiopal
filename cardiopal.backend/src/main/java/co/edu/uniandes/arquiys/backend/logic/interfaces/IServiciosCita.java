@@ -13,10 +13,10 @@ import java.util.List;
  */
 public interface IServiciosCita {
     
-    public CitaDTO createCita();
-    public CitaDTO getCita(int idCita);
-    public CitaDTO updateCita(int idCita0);
-    public void deleteCita(int idCita);
+    public CitaDTO createCita(CitaDTO cita);
+    public CitaDTO getCita(Long idCita);
+    public CitaDTO updateCita(CitaDTO cita);
+    public void deleteCita(Long idCita);
     public List<CitaDTO> getAll();
 
 }

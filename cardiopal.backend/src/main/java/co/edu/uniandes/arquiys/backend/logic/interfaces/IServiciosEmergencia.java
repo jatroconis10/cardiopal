@@ -13,9 +13,9 @@ import java.util.List;
  */
 public interface IServiciosEmergencia {
     
-    public EmergenciaDTO getEmergencia(int idEmergencia);
-    public EmergenciaDTO updateEmergencia(int idEmergencia);
-    public void deleteEmergencia(int idEmergencia);
-    public EmergenciaDTO createEmergencia();
+    public EmergenciaDTO getEmergencia(Long idEmergencia);
+    public EmergenciaDTO updateEmergencia(EmergenciaDTO emergencia);
+    public void deleteEmergencia(Long idEmergencia);
+    public EmergenciaDTO createEmergencia(EmergenciaDTO emergencia);
     public List<EmergenciaDTO> getAll();
 }

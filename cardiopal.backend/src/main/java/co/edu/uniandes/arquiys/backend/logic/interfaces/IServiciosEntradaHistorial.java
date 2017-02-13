@@ -13,9 +13,9 @@ import java.util.List;
  */
 public interface IServiciosEntradaHistorial {
     
-    public EntradaHistorialDTO getEntradaHistorial(int idEntradaHistorial);
-    public EntradaHistorialDTO updateEntradaHistorial(int idEntradaHistorial);
-    public void deleteEntradaHistorial(int idEntradaHistorial);
-    public EntradaHistorialDTO createEntradaHistorial();
+    public EntradaHistorialDTO getEntradaHistorial(Long idEntradaHistorial);
+    public EntradaHistorialDTO updateEntradaHistorial(EntradaHistorialDTO entrada);
+    public void deleteEntradaHistorial(Long idEntradaHistorial);
+    public EntradaHistorialDTO createEntradaHistorial(EntradaHistorialDTO entrada);
     public List<EntradaHistorialDTO> getAll();
 }

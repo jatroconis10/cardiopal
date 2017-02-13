@@ -7,6 +7,7 @@ package co.edu.uniandes.arquiys.backend.logic.ejb;
 
 import co.edu.uniandes.arquiys.backend.dto.HistorialDTO;
 import co.edu.uniandes.arquiys.backend.logic.interfaces.IServiciosHistorial;
+import java.util.ArrayList;
 import java.util.List;
 
 /**
@@ -15,29 +16,49 @@ import java.util.List;
  */
 public class ServiciosHistorial implements IServiciosHistorial {
 
+    private List<HistorialDTO> historials;
+    public ServiciosHistorial()
+            {
+                historials = new ArrayList<HistorialDTO>();
+            }
     @Override
-    public HistorialDTO getHistorial(int idHistorial) {
-         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates. 
+    public HistorialDTO getHistorial(Long idHistorial) {
+        return historials.get(idHistorial.intValue() );
     }
 
     @Override
-    public HistorialDTO updateHistorial(int idHistorial) {
-     throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    public HistorialDTO updateHistorial(HistorialDTO historial) {
+        HistorialDTO historialViejo = historials.get( historial.getId().intValue());
+        
+        historialViejo.setEntradas(historial.getEntradas());
+        return historialViejo;
+        
     }
 
     @Override
-    public void deleteHistorial(int idHistorial) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    public void deleteHistorial(Long idHistorial) {
+        
+        historials.remove( idHistorial.intValue());
     }
 
     @Override
-    public HistorialDTO createHistorial() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    public HistorialDTO createHistorial(HistorialDTO historial) {
+        
+        if(historial.getId() == null)
+        {
+            Long idNuevo = new Long(historials.size());
+            historial.setId(idNuevo);
+        }
+        historials.add(historial);
+        return historial;
+        
     }
 
     @Override
     public List<HistorialDTO> getAll() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+
+       return historials;
+
     }
     
 }

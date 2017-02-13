@@ -7,6 +7,7 @@ package co.edu.uniandes.arquiys.backend.logic.ejb;
 
 import co.edu.uniandes.arquiys.backend.dto.CitaDTO;
 import co.edu.uniandes.arquiys.backend.logic.interfaces.IServiciosCita;
+import java.util.ArrayList;
 import java.util.List;
 
 /**
@@ -15,31 +16,50 @@ import java.util.List;
  */
 public class ServiciosCita implements IServiciosCita {
 
+    private List<CitaDTO> citas;
+    public ServiciosCita()
+            {
+                citas = new ArrayList<CitaDTO>();
+            }
     @Override
-    public CitaDTO getCita(int idCita) {
+    public CitaDTO getCita(Long idCita) {
+        return citas.get(idCita.intValue() );
+    }
+
+    @Override
+    public CitaDTO updateCita(CitaDTO cita) {
+        CitaDTO citaViejo = citas.get( cita.getId().intValue());
         
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-
+        citaViejo.setFecha(cita.getFecha());
+        citaViejo.setUsuario(cita.getUsuario());
+        return citaViejo;
+        
     }
 
     @Override
-    public CitaDTO updateCita(int idCita) {
-      throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    public void deleteCita(Long idCita) {
+        
+        citas.remove( idCita.intValue());
     }
 
     @Override
-    public void deleteCita(int idCita) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-    }
-
-    @Override
-    public CitaDTO createCita() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    public CitaDTO createCita(CitaDTO cita) {
+        
+        if(cita.getId() == null)
+        {
+            Long idNuevo = new Long(citas.size());
+            cita.setId(idNuevo);
+        }
+        citas.add(cita);
+        return cita;
+        
     }
 
     @Override
     public List<CitaDTO> getAll() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+
+       return citas;
+
     }
     
 }

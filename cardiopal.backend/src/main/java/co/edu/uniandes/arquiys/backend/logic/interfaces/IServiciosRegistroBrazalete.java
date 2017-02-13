@@ -13,9 +13,9 @@ import java.util.List;
  */
 public interface IServiciosRegistroBrazalete {
     
-    public RegistroBrazaleteDTO getRegistroBrazalete(int idRegistroBrazalete);
-    public RegistroBrazaleteDTO updateRegistroBrazalete(int idRegistroBrazalete);
-    public void deleteRegistroBrazalete(int idRegistroBrazalete);
-    public RegistroBrazaleteDTO createRegistroBrazalete();
+    public RegistroBrazaleteDTO getRegistroBrazalete(Long idRegistroBrazalete);
+    public RegistroBrazaleteDTO updateRegistroBrazalete(RegistroBrazaleteDTO registro);
+    public void deleteRegistroBrazalete(Long idRegistroBrazalete);
+    public RegistroBrazaleteDTO createRegistroBrazalete(RegistroBrazaleteDTO registro);
     public List<RegistroBrazaleteDTO> getAll();
 }
