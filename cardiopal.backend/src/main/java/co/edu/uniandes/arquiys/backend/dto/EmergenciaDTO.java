@@ -9,7 +9,7 @@ package co.edu.uniandes.arquiys.backend.dto;
  *
  * @author Ricardo
  */
-class EmergenciaDTO {
+public class EmergenciaDTO {
     private long id;
     private String descripcion;
     

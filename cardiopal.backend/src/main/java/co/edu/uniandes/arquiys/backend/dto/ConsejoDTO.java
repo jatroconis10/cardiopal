@@ -9,7 +9,7 @@ package co.edu.uniandes.arquiys.backend.dto;
  *
  * @author Ricardo
  */
-class ConsejoDTO {
+public class ConsejoDTO {
     
     private long id;
     private String consejo;

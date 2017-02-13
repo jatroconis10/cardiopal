@@ -11,7 +11,7 @@ import java.util.List;
  * agregar quitar paciente
  * @author Ricardo
  */
-class MedicoDTO {
+public class MedicoDTO {
     private long id;
     private String nombre;
     private List<PacienteDTO> pacientes;

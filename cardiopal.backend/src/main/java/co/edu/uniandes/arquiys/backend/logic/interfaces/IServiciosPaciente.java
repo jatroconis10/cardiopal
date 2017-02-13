@@ -5,10 +5,17 @@
  */
 package co.edu.uniandes.arquiys.backend.logic.interfaces;
 
+import co.edu.uniandes.arquiys.backend.dto.PacienteDTO;
+import java.util.List;
 /**
  *
- * @author ja.troconis10
+ * @author ce.gonzalez13
  */
 public interface IServiciosPaciente {
     
+        public PacienteDTO createPaciente();
+    public PacienteDTO getPaciente(int idPaciente);
+    public PacienteDTO updatePaciente(int idPaciente);
+    public void deletePaciente(int idPaciente);
+    public List<PacienteDTO> getAll();
 }

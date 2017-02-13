@@ -9,6 +9,6 @@ package co.edu.uniandes.arquiys.backend.dto;
  *
  * @author Ricardo
  */
-class HistorialDTO {
+public class HistorialDTO {
     
 }
