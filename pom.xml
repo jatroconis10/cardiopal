@@ -9,7 +9,6 @@
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
     </properties>
   <modules>
-    <module>backend</module>
     <module>cardiopal.backend</module>
     <module>cardiopal.services</module>
   </modules>

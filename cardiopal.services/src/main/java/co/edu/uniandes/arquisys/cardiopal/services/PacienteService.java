@@ -25,7 +25,7 @@ import javax.ws.rs.core.MediaType;
  *
  * @author ja.troconis10
  */
-@Path("/paciente")
+@Path("paciente")
 @Stateless
 @Consumes(MediaType.APPLICATION_JSON)
 @Produces(MediaType.APPLICATION_JSON)
@@ -35,7 +35,7 @@ public class PacienteService {
     private IServiciosPaciente pacienteEjb;
     
     @GET
-    @Path("/pacientes")
+    @Path("pacientes")
     public List<PacienteDTO> getAllPacientes() {
         return pacienteEjb.getAll();
     }
