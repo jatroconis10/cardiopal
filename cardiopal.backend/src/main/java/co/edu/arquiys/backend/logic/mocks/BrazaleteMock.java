@@ -15,7 +15,7 @@ import java.util.List;
  *
  * @author ce.gonzalez13
  */
-public class BrazaleteMock implements IServiciosBrazalete {
+public class BrazaleteMock{
 
 
     private List<BrazaleteDTO> brazaletes;
