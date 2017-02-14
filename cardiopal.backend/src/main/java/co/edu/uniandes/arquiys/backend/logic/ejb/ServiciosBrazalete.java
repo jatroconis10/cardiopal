@@ -5,62 +5,50 @@
  */
 package co.edu.uniandes.arquiys.backend.logic.ejb;
 
+import co.edu.arquiys.backend.logic.mocks.BrazaleteMock;
 import co.edu.uniandes.arquiys.backend.dto.BrazaleteDTO;
 import co.edu.uniandes.arquiys.backend.logic.interfaces.IServiciosBrazalete;
-import java.util.ArrayList;
 import java.util.List;
-import javax.ejb.Stateless;
 
 
 /**
  *
  * @author ce.gonzalez13
  */
-@Stateless
 public class ServiciosBrazalete implements IServiciosBrazalete {
 
-    private List<BrazaleteDTO> brazaletes;
+    private BrazaleteMock mock;
     public ServiciosBrazalete()
             {
-                brazaletes = new ArrayList<BrazaleteDTO>();
+                mock = new BrazaleteMock();
             }
     @Override
     public BrazaleteDTO getBrazalete(Long idBrazalete) {
-        return brazaletes.get(idBrazalete.intValue() );
+        return mock.getBrazalete(idBrazalete);
     }
 
     @Override
     public BrazaleteDTO updateBrazalete(BrazaleteDTO brazalete) {
-        BrazaleteDTO brazaleteViejo = brazaletes.get( brazalete.getId().intValue());
         
-        return brazaleteViejo;
+        return mock.updateBrazalete(brazalete);
         
     }
 
     @Override
     public void deleteBrazalete(Long idBrazalete) {
         
-        brazaletes.remove( idBrazalete.intValue());
+        mock.deleteBrazalete(idBrazalete);
     }
 
     @Override
     public BrazaleteDTO createBrazalete(BrazaleteDTO brazalete) {
-        
-        if(brazalete.getId() == null)
-        {
-            Long idNuevo = new Long(brazaletes.size());
-            brazalete.setId(idNuevo);
-        }
-        brazaletes.add(brazalete);
-        return brazalete;
+        return mock.createBrazalete(brazalete);
         
     }
 
     @Override
     public List<BrazaleteDTO> getAll() {
-
-       return brazaletes;
-
+        return mock.getAll();
     }
     
 }
