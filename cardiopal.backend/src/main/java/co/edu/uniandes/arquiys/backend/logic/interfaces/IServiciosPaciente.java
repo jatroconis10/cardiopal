@@ -7,13 +7,15 @@ package co.edu.uniandes.arquiys.backend.logic.interfaces;
 
 import co.edu.uniandes.arquiys.backend.dto.PacienteDTO;
 import java.util.List;
+import javax.ejb.Local;
 /**
  *
  * @author ce.gonzalez13
  */
+@Local
 public interface IServiciosPaciente {
     
-        public PacienteDTO createPaciente(PacienteDTO paciente);
+    public PacienteDTO createPaciente(PacienteDTO paciente);
     public PacienteDTO getPaciente(Long idPaciente);
     public PacienteDTO updatePaciente(PacienteDTO paciente);
     public void deletePaciente(Long idPaciente);
