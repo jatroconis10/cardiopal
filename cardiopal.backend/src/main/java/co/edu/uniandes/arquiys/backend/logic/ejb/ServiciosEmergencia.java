@@ -9,11 +9,14 @@ import co.edu.uniandes.arquiys.backend.dto.EmergenciaDTO;
 import co.edu.uniandes.arquiys.backend.logic.interfaces.IServiciosEmergencia;
 import java.util.ArrayList;
 import java.util.List;
+import javax.ejb.Stateless;
+
 
 /**
  *
  * @author ce.gonzalez13
  */
+@Stateless
 public class ServiciosEmergencia implements IServiciosEmergencia {
 
     private List<EmergenciaDTO> emergencias;

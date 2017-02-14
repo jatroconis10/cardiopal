@@ -7,10 +7,12 @@ package co.edu.uniandes.arquiys.backend.logic.interfaces;
 
 import co.edu.uniandes.arquiys.backend.dto.MedicoDTO;
 import java.util.List;
+import javax.ejb.Local;
 /**
  *
  * @author ce.gonzalez13
  */
+@Local
 public interface IServiciosMedico {
     
     public MedicoDTO getMedico(Long idMedico);
