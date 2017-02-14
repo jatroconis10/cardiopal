@@ -9,7 +9,6 @@ import co.edu.uniandes.arquiys.backend.dto.BrazaleteDTO;
 import co.edu.uniandes.arquiys.backend.logic.interfaces.IServiciosBrazalete;
 import java.util.ArrayList;
 import java.util.List;
-import javax.ejb.Stateless;
 
 
 /**
@@ -18,17 +17,16 @@ import javax.ejb.Stateless;
  */
 public class BrazaleteMock implements IServiciosBrazalete {
 
+
     private List<BrazaleteDTO> brazaletes;
     public BrazaleteMock()
             {
                 brazaletes = new ArrayList<BrazaleteDTO>();
             }
-    @Override
     public BrazaleteDTO getBrazalete(Long idBrazalete) {
         return brazaletes.get(idBrazalete.intValue() );
     }
 
-    @Override
     public BrazaleteDTO updateBrazalete(BrazaleteDTO brazalete) {
         BrazaleteDTO brazaleteViejo = brazaletes.get( brazalete.getId().intValue());
         
@@ -36,13 +34,11 @@ public class BrazaleteMock implements IServiciosBrazalete {
         
     }
 
-    @Override
     public void deleteBrazalete(Long idBrazalete) {
         
         brazaletes.remove( idBrazalete.intValue());
     }
 
-    @Override
     public BrazaleteDTO createBrazalete(BrazaleteDTO brazalete) {
         
         if(brazalete.getId() == null)
@@ -55,7 +51,6 @@ public class BrazaleteMock implements IServiciosBrazalete {
         
     }
 
-    @Override
     public List<BrazaleteDTO> getAll() {
 
        return brazaletes;
