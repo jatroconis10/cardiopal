@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package co.edu.arquiys.backend.logic.mocks;
+package co.edu.uniandes.arquiys.backend.logic.mocks;
 
 import co.edu.uniandes.arquiys.backend.dto.BrazaleteDTO;
 import co.edu.uniandes.arquiys.backend.logic.interfaces.IServiciosBrazalete;

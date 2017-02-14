@@ -5,7 +5,7 @@
  */
 package co.edu.uniandes.arquiys.backend.logic.ejb;
 
-import co.edu.arquiys.backend.logic.mocks.BrazaleteMock;
+import co.edu.uniandes.arquiys.backend.logic.mocks.BrazaleteMock;
 import co.edu.uniandes.arquiys.backend.dto.BrazaleteDTO;
 import co.edu.uniandes.arquiys.backend.logic.interfaces.IServiciosBrazalete;
 import java.util.List;
