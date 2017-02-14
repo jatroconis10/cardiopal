@@ -9,11 +9,14 @@ import co.edu.uniandes.arquiys.backend.dto.RegistroBrazaleteDTO;
 import co.edu.uniandes.arquiys.backend.logic.interfaces.IServiciosRegistroBrazalete;
 import java.util.ArrayList;
 import java.util.List;
+import javax.ejb.Stateless;
+
 
 /**
  *
  * @author ce.gonzalez13
  */
+@Stateless
 public class ServiciosRegistroBrazalete implements IServiciosRegistroBrazalete {
 
     private List<RegistroBrazaleteDTO> registroBrazaletes;

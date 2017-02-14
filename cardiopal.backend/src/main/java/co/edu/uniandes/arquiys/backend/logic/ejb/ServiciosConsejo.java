@@ -9,11 +9,14 @@ import co.edu.uniandes.arquiys.backend.dto.ConsejoDTO;
 import co.edu.uniandes.arquiys.backend.logic.interfaces.IServiciosConsejo;
 import java.util.ArrayList;
 import java.util.List;
+import javax.ejb.Stateless;
+
 
 /**
  *
  * @author ce.gonzalez13
  */
+@Stateless
 public class ServiciosConsejo implements IServiciosConsejo {
 
     private List<ConsejoDTO> consejos;

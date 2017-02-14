@@ -9,11 +9,14 @@ import co.edu.uniandes.arquiys.backend.dto.HistorialDTO;
 import co.edu.uniandes.arquiys.backend.logic.interfaces.IServiciosHistorial;
 import java.util.ArrayList;
 import java.util.List;
+import javax.ejb.Stateless;
+
 
 /**
  *
  * @author ce.gonzalez13
  */
+@Stateless
 public class ServiciosHistorial implements IServiciosHistorial {
 
     private List<HistorialDTO> historials;

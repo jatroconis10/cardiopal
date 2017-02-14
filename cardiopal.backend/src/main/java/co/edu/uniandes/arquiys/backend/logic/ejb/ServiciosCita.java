@@ -9,11 +9,14 @@ import co.edu.uniandes.arquiys.backend.dto.CitaDTO;
 import co.edu.uniandes.arquiys.backend.logic.interfaces.IServiciosCita;
 import java.util.ArrayList;
 import java.util.List;
+import javax.ejb.Stateless;
+
 
 /**
  *
  * @author ce.gonzalez13
  */
+@Stateless
 public class ServiciosCita implements IServiciosCita {
 
     private List<CitaDTO> citas;

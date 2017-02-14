@@ -9,11 +9,14 @@ import co.edu.uniandes.arquiys.backend.dto.MedicoDTO;
 import co.edu.uniandes.arquiys.backend.logic.interfaces.IServiciosMedico;
 import java.util.ArrayList;
 import java.util.List;
+import javax.ejb.Stateless;
+
 
 /**
  *
  * @author ce.gonzalez13
  */
+@Stateless
 public class ServiciosMedico implements IServiciosMedico {
 
     private List<MedicoDTO> medicos;
