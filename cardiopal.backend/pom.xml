@@ -18,8 +18,8 @@
         <dependency>
             <groupId>javax</groupId>
             <artifactId>javaee-api</artifactId>
-            <version>6.0</version>
-            <type>jar</type>
+            <version>7.0</version>
+            <scope>provided</scope>
         </dependency>
     </dependencies>
 

@@ -7,10 +7,12 @@ package co.edu.uniandes.arquiys.backend.logic.interfaces;
 
 import co.edu.uniandes.arquiys.backend.dto.EmergenciaDTO;
 import java.util.List;
+import javax.ejb.Local;
 /**
  *
  * @author ce.gonzalez13
  */
+@Local
 public interface IServiciosEmergencia {
     
     public EmergenciaDTO getEmergencia(Long idEmergencia);

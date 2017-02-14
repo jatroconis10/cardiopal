@@ -9,12 +9,14 @@ import co.edu.uniandes.arquiys.backend.logic.mocks.BrazaleteMock;
 import co.edu.uniandes.arquiys.backend.dto.BrazaleteDTO;
 import co.edu.uniandes.arquiys.backend.logic.interfaces.IServiciosBrazalete;
 import java.util.List;
+import javax.ejb.Stateless;
 
 
 /**
  *
  * @author ce.gonzalez13
  */
+@Stateless
 public class ServiciosBrazalete implements IServiciosBrazalete {
 
     private BrazaleteMock mock;
