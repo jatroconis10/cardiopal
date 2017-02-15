@@ -12,7 +12,7 @@ import javax.ws.rs.core.Application;
  *
  * @author sf.munera10
  */
-@javax.ws.rs.ApplicationPath("cardiopal")
+@javax.ws.rs.ApplicationPath("/cardiopal")
 public class ApplicationConfig extends Application {
 
     @Override
@@ -39,6 +39,9 @@ public class ApplicationConfig extends Application {
         resources.add(co.edu.uniandes.arquisys.cardiopal.services.MedicoService.class);
         resources.add(co.edu.uniandes.arquisys.cardiopal.services.PacienteService.class);
         resources.add(co.edu.uniandes.arquisys.cardiopal.services.RegistroBrazaleteService.class);
+        resources.add(co.edu.uniandes.arquisys.cardiopal.services.SensorEstresService.class);
+        resources.add(co.edu.uniandes.arquisys.cardiopal.services.SensorFreqService.class);
+        resources.add(co.edu.uniandes.arquisys.cardiopal.services.SensorPresionService.class);
     }
     
 }

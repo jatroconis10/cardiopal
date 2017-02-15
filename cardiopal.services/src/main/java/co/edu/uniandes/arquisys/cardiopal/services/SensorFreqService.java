@@ -5,9 +5,9 @@
  */
 package co.edu.uniandes.arquisys.cardiopal.services;
 
-import co.edu.uniandes.arquiys.backend.dto.CitaDTO;
+import co.edu.uniandes.arquiys.backend.dto.SensorFreqDTO;
 import co.edu.uniandes.arquiys.backend.excepciones.ErrorDeNegocioException;
-import co.edu.uniandes.arquiys.backend.logic.interfaces.IServiciosCita;
+import co.edu.uniandes.arquiys.backend.logic.interfaces.IServiciosSensorFreq;
 import java.util.List;
 import javax.ejb.EJB;
 import javax.ejb.Stateless;
@@ -25,42 +25,42 @@ import javax.ws.rs.core.MediaType;
  *
  * @author sf.munera10
  */
-@Path("cita")
+@Path("frecuencia")
 @Stateless
 @Consumes(MediaType.APPLICATION_JSON)
 @Produces(MediaType.APPLICATION_JSON)
-public class CitaService {
-    
+public class SensorFreqService {
+
     @EJB
-    private IServiciosCita citaEjb;
-    
+    private IServiciosSensorFreq frecuenciaEjb;
+
     @GET
-    @Path("/citas")
-    public List<CitaDTO> getAllCitas() {
-        return citaEjb.getAll();
+    @Path("/frecuencias")
+    public List<SensorFreqDTO> getAllSensorFreqs() {
+        return frecuenciaEjb.getAll();
     }
-    
+
     @GET
     @Path("/buscar/{id: \\d+}")
-    public CitaDTO getCita(@PathParam("id") Long id) throws ErrorDeNegocioException{
-        return citaEjb.getCita(id);
+    public SensorFreqDTO getSensorFreq(@PathParam("id") Long id) throws ErrorDeNegocioException {
+        return frecuenciaEjb.getSensorFreq(id);
     }
 
     @POST
     @Path("/agregar")
-    public CitaDTO createCita(CitaDTO br) {    
-        return citaEjb.createCita(br);
+    public SensorFreqDTO createSensorFreq(SensorFreqDTO br) {
+        return frecuenciaEjb.createSensorFreq(br);
     }
-    
+
     @PUT
     @Path("/editar")
-    public CitaDTO updateCita(CitaDTO br){
-        return citaEjb.updateCita(br);
+    public SensorFreqDTO updateSensorFreq(SensorFreqDTO br) {
+        return frecuenciaEjb.updateSensorFreq(br);
     }
 
     @DELETE
     @Path("/borrar/{id: \\d+}")
-    public void deleteCita(@PathParam("id") Long id) throws ErrorDeNegocioException {
-        citaEjb.deleteCita(id);
+    public void deleteSensorFreq(@PathParam("id") Long id) throws ErrorDeNegocioException {
+        frecuenciaEjb.deleteSensorFreq(id);
     }
 }

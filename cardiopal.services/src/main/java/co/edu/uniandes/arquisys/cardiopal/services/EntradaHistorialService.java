@@ -25,7 +25,7 @@ import javax.ws.rs.core.MediaType;
  *
  * @author sf.munera10
  */
-@Path("/entradaHistorial")
+@Path("entradaHistorial")
 @Stateless
 @Consumes(MediaType.APPLICATION_JSON)
 @Produces(MediaType.APPLICATION_JSON)
@@ -35,7 +35,7 @@ public class EntradaHistorialService {
     private IServiciosEntradaHistorial entradaHistorialEjb;
     
     @GET
-    @Path("/entradaHistorials")
+    @Path("/entradashistoriales")
     public List<EntradaHistorialDTO> getAllEntradaHistorials() {
         return entradaHistorialEjb.getAll();
     }

@@ -5,9 +5,9 @@
  */
 package co.edu.uniandes.arquisys.cardiopal.services;
 
-import co.edu.uniandes.arquiys.backend.dto.CitaDTO;
+import co.edu.uniandes.arquiys.backend.dto.SensorPresionDTO;
 import co.edu.uniandes.arquiys.backend.excepciones.ErrorDeNegocioException;
-import co.edu.uniandes.arquiys.backend.logic.interfaces.IServiciosCita;
+import co.edu.uniandes.arquiys.backend.logic.interfaces.IServiciosSensorPresion;
 import java.util.List;
 import javax.ejb.EJB;
 import javax.ejb.Stateless;
@@ -25,42 +25,43 @@ import javax.ws.rs.core.MediaType;
  *
  * @author sf.munera10
  */
-@Path("cita")
+@Path("presion")
 @Stateless
 @Consumes(MediaType.APPLICATION_JSON)
 @Produces(MediaType.APPLICATION_JSON)
-public class CitaService {
-    
+public class SensorPresionService {
+
     @EJB
-    private IServiciosCita citaEjb;
-    
+    private IServiciosSensorPresion presionEjb;
+
     @GET
-    @Path("/citas")
-    public List<CitaDTO> getAllCitas() {
-        return citaEjb.getAll();
+    @Path("/presiones")
+    public List<SensorPresionDTO> getAllSensorPresions() {
+        return presionEjb.getAll();
     }
-    
+
     @GET
     @Path("/buscar/{id: \\d+}")
-    public CitaDTO getCita(@PathParam("id") Long id) throws ErrorDeNegocioException{
-        return citaEjb.getCita(id);
+    public SensorPresionDTO getSensorPresion(@PathParam("id") Long id) throws ErrorDeNegocioException {
+        return presionEjb.getSensorPresion(id);
     }
 
     @POST
     @Path("/agregar")
-    public CitaDTO createCita(CitaDTO br) {    
-        return citaEjb.createCita(br);
+    public SensorPresionDTO createSensorPresion(SensorPresionDTO br) {
+        return presionEjb.createSensorPresion(br);
     }
-    
+
     @PUT
     @Path("/editar")
-    public CitaDTO updateCita(CitaDTO br){
-        return citaEjb.updateCita(br);
+    public SensorPresionDTO updateSensorPresion(SensorPresionDTO br) {
+        return presionEjb.updateSensorPresion(br);
     }
 
     @DELETE
     @Path("/borrar/{id: \\d+}")
-    public void deleteCita(@PathParam("id") Long id) throws ErrorDeNegocioException {
-        citaEjb.deleteCita(id);
+    public void deleteSensorPresion(@PathParam("id") Long id) throws ErrorDeNegocioException {
+        presionEjb.deleteSensorPresion(id);
     }
+
 }

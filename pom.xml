@@ -10,5 +10,6 @@
     </properties>
   <modules>
     <module>cardiopal.services</module>
+    <module>cardiopal.backend</module>
   </modules>
 </project>
