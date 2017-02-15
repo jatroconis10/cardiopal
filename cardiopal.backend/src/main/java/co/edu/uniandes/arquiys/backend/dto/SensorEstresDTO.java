@@ -5,6 +5,8 @@
  */
 package co.edu.uniandes.arquiys.backend.dto;
 
+import java.util.Date;
+
 /**
  *
  * @author sf.munera10
@@ -21,8 +23,28 @@ public class SensorEstresDTO {
     
     private int variabilidadCardiaca;
     
+    private int tipo;
+    
+    private Date fecha;
+    
     public SensorEstresDTO(){
         
+    }
+
+    public int getTipo() {
+        return tipo;
+    }
+
+    public void setTipo(int tipo) {
+        this.tipo = tipo;
+    }
+
+    public Date getFecha() {
+        return fecha;
+    }
+
+    public void setFecha(Date fecha) {
+        this.fecha = fecha;
     }
 
     /**

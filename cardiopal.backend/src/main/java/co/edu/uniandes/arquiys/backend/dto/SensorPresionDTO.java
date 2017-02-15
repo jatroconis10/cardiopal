@@ -5,6 +5,8 @@
  */
 package co.edu.uniandes.arquiys.backend.dto;
 
+import java.util.Date;
+
 /**
  *
  * @author sf.munera10
@@ -25,10 +27,37 @@ public class SensorPresionDTO {
     
     private int presionSistolica;
     
+    private Date fecha;
+    
+    private String estado;
+    
     public SensorPresionDTO(){
         
     }
 
+    public SensorPresionDTO(Long id, int presionDiastolica, int presionSistolica, Date fecha) {
+        this.id = id;
+        this.presionDiastolica = presionDiastolica;
+        this.presionSistolica = presionSistolica;
+        this.fecha = fecha;
+    }
+
+    public Date getFecha() {
+        return fecha;
+    }
+
+    public void setFecha(Date fecha) {
+        this.fecha = fecha;
+    }
+
+    public String getEstado() {
+        return estado;
+    }
+
+    public void setEstado(String estado) {
+        this.estado = estado;
+    }
+    
     /**
      * @return the id
      */
