@@ -20,6 +20,10 @@ public class MarcapasoDTO {
     {
         this.usuario = usuario;
     }
+    public MarcapasoDTO()
+    {
+        this.usuario = new PacienteDTO();
+    }
        public Long getId() {
         return Id;
     }

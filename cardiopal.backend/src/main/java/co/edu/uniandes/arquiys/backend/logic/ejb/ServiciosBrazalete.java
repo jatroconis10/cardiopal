@@ -26,7 +26,11 @@ public class ServiciosBrazalete implements IServiciosBrazalete {
             }
     @Override
     public BrazaleteDTO getBrazalete(Long idBrazalete) {
-        return mock.getBrazalete(idBrazalete);
+        if(idBrazalete != null)
+        {
+                    return mock.getBrazalete(idBrazalete);
+        }
+        return null;
     }
 
     @Override
@@ -38,14 +42,24 @@ public class ServiciosBrazalete implements IServiciosBrazalete {
 
     @Override
     public void deleteBrazalete(Long idBrazalete) {
-        
-        mock.deleteBrazalete(idBrazalete);
+        if(!getBrazalete(idBrazalete).equals(null))
+        {
+                    mock.deleteBrazalete(idBrazalete);
+        }
+       
     }
 
     @Override
     public BrazaleteDTO createBrazalete(BrazaleteDTO brazalete) {
-        return mock.createBrazalete(brazalete);
-        
+        if(!brazalete.equals(null))
+        {
+            if(brazalete.getId().equals(null))
+            {
+                brazalete.setId(mock.getAll().size() + 1L);
+            }
+            return mock.createBrazalete(brazalete);
+        }
+        return null;
     }
 
     @Override

@@ -7,6 +7,7 @@ package co.edu.uniandes.arquiys.backend.logic.ejb;
 
 import co.edu.uniandes.arquiys.backend.dto.EmergenciaDTO;
 import co.edu.uniandes.arquiys.backend.logic.interfaces.IServiciosEmergencia;
+import co.edu.uniandes.arquiys.backend.logic.mocks.EmergenciaMock;
 import java.util.ArrayList;
 import java.util.List;
 import javax.ejb.Stateless;
@@ -19,48 +20,39 @@ import javax.ejb.Stateless;
 @Stateless
 public class ServiciosEmergencia implements IServiciosEmergencia {
 
-    private List<EmergenciaDTO> emergencias;
+    private EmergenciaMock mock;
     public ServiciosEmergencia()
             {
-                emergencias = new ArrayList<EmergenciaDTO>();
+                mock = new EmergenciaMock();
             }
     @Override
     public EmergenciaDTO getEmergencia(Long idEmergencia) {
-        return emergencias.get(idEmergencia.intValue() );
+        return mock.getEmergencia(idEmergencia);
     }
 
     @Override
     public EmergenciaDTO updateEmergencia(EmergenciaDTO emergencia) {
-        EmergenciaDTO emergenciaViejo = emergencias.get( emergencia.getId().intValue());
-        
-        emergenciaViejo.setDescripcion(emergencia.getDescripcion());
-        return emergenciaViejo;
+        return mock.updateEmergencia(emergencia);
         
     }
 
     @Override
     public void deleteEmergencia(Long idEmergencia) {
         
-        emergencias.remove( idEmergencia.intValue());
+        mock.deleteEmergencia(idEmergencia);
     }
 
     @Override
     public EmergenciaDTO createEmergencia(EmergenciaDTO emergencia) {
         
-        if(emergencia.getId() == null)
-        {
-            Long idNuevo = new Long(emergencias.size());
-            emergencia.setId(idNuevo);
-        }
-        emergencias.add(emergencia);
-        return emergencia;
+       return mock.createEmergencia(emergencia);
         
     }
 
     @Override
     public List<EmergenciaDTO> getAll() {
 
-       return emergencias;
+       return mock.getAll();
 
     }
     

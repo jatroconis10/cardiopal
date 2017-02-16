@@ -7,6 +7,7 @@ package co.edu.uniandes.arquiys.backend.logic.ejb;
 
 import co.edu.uniandes.arquiys.backend.dto.MedicoDTO;
 import co.edu.uniandes.arquiys.backend.logic.interfaces.IServiciosMedico;
+import co.edu.uniandes.arquiys.backend.logic.mocks.MedicoMock;
 import java.util.ArrayList;
 import java.util.List;
 import javax.ejb.Stateless;
@@ -19,49 +20,37 @@ import javax.ejb.Stateless;
 @Stateless
 public class ServiciosMedico implements IServiciosMedico {
 
-    private List<MedicoDTO> medicos;
+    private MedicoMock mock;
     public ServiciosMedico()
             {
-                medicos = new ArrayList<MedicoDTO>();
+                mock = new MedicoMock();
             }
     @Override
     public MedicoDTO getMedico(Long idMedico) {
-        return medicos.get(idMedico.intValue() );
+        return mock.getMedico(idMedico);
     }
 
     @Override
     public MedicoDTO updateMedico(MedicoDTO medico) {
-        MedicoDTO medicoViejo = medicos.get( medico.getId().intValue());
-        
-        medicoViejo.setNombre(medico.getNombre());
-        medicoViejo.setPacientes(medico.getPacientes());
-        return medicoViejo;
-        
+        return mock.updateMedico(medico);
     }
 
     @Override
     public void deleteMedico(Long idMedico) {
         
-        medicos.remove( idMedico.intValue());
+        mock.deleteMedico(idMedico);
     }
 
     @Override
     public MedicoDTO createMedico(MedicoDTO medico) {
         
-        if(medico.getId() == null)
-        {
-            Long idNuevo = new Long(medicos.size());
-            medico.setId(idNuevo);
-        }
-        medicos.add(medico);
-        return medico;
-        
+        return mock.createMedico(medico);
     }
 
     @Override
     public List<MedicoDTO> getAll() {
 
-       return medicos;
+       return mock.getAll();
 
     }
     

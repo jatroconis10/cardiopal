@@ -7,6 +7,7 @@ package co.edu.uniandes.arquiys.backend.logic.ejb;
 
 import co.edu.uniandes.arquiys.backend.dto.RegistroBrazaleteDTO;
 import co.edu.uniandes.arquiys.backend.logic.interfaces.IServiciosRegistroBrazalete;
+import co.edu.uniandes.arquiys.backend.logic.mocks.RegistroBrazaleteMock;
 import java.util.ArrayList;
 import java.util.List;
 import javax.ejb.Stateless;
@@ -19,50 +20,37 @@ import javax.ejb.Stateless;
 @Stateless
 public class ServiciosRegistroBrazalete implements IServiciosRegistroBrazalete {
 
-    private List<RegistroBrazaleteDTO> registroBrazaletes;
+    private RegistroBrazaleteMock mock;
     public ServiciosRegistroBrazalete()
             {
-                registroBrazaletes = new ArrayList<RegistroBrazaleteDTO>();
+                mock = new RegistroBrazaleteMock();
             }
     @Override
     public RegistroBrazaleteDTO getRegistroBrazalete(Long idRegistroBrazalete) {
-        return registroBrazaletes.get(idRegistroBrazalete.intValue() );
+        return mock.getRegistroBrazalete(idRegistroBrazalete);
     }
 
     @Override
     public RegistroBrazaleteDTO updateRegistroBrazalete(RegistroBrazaleteDTO registroBrazalete) {
-        RegistroBrazaleteDTO registroBrazaleteViejo = registroBrazaletes.get( registroBrazalete.getId().intValue());
-        
-        registroBrazaleteViejo.setFecha(registroBrazalete.getFecha());
-        registroBrazaleteViejo.setHistorial(registroBrazalete.getHistorial());
-        registroBrazaleteViejo.setRitmo(registroBrazalete.getRitmo());
-        return registroBrazaleteViejo;
-        
+        return mock.updateRegistroBrazalete(registroBrazalete);
     }
 
     @Override
     public void deleteRegistroBrazalete(Long idRegistroBrazalete) {
         
-        registroBrazaletes.remove( idRegistroBrazalete.intValue());
+        mock.deleteRegistroBrazalete(idRegistroBrazalete);
     }
 
     @Override
     public RegistroBrazaleteDTO createRegistroBrazalete(RegistroBrazaleteDTO registroBrazalete) {
         
-        if(registroBrazalete.getId() == null)
-        {
-            Long idNuevo = new Long(registroBrazaletes.size());
-            registroBrazalete.setId(idNuevo);
-        }
-        registroBrazaletes.add(registroBrazalete);
-        return registroBrazalete;
-        
+        return mock.createRegistroBrazalete(registroBrazalete);
     }
 
     @Override
     public List<RegistroBrazaleteDTO> getAll() {
 
-       return registroBrazaletes;
+       return mock.getAll();
 
     }
     

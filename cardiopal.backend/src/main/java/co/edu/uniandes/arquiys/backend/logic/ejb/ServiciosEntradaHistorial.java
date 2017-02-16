@@ -7,6 +7,7 @@ package co.edu.uniandes.arquiys.backend.logic.ejb;
 
 import co.edu.uniandes.arquiys.backend.dto.EntradaHistorialDTO;
 import co.edu.uniandes.arquiys.backend.logic.interfaces.IServiciosEntradaHistorial;
+import co.edu.uniandes.arquiys.backend.logic.mocks.EntradaHistorialMock;
 import java.util.ArrayList;
 import java.util.List;
 import javax.ejb.Stateless;
@@ -19,49 +20,39 @@ import javax.ejb.Stateless;
 @Stateless
 public class ServiciosEntradaHistorial implements IServiciosEntradaHistorial {
 
-    private List<EntradaHistorialDTO> entradaHistorials;
+    private EntradaHistorialMock mock;
     public ServiciosEntradaHistorial()
             {
-                entradaHistorials = new ArrayList<EntradaHistorialDTO>();
+                mock = new EntradaHistorialMock();
             }
     @Override
     public EntradaHistorialDTO getEntradaHistorial(Long idEntradaHistorial) {
-        return entradaHistorials.get(idEntradaHistorial.intValue() );
+        return mock.getEntradaHistorial(idEntradaHistorial);
     }
 
     @Override
     public EntradaHistorialDTO updateEntradaHistorial(EntradaHistorialDTO entradaHistorial) {
-        EntradaHistorialDTO entradaHistorialViejo = entradaHistorials.get( entradaHistorial.getId().intValue());
-        
-        entradaHistorialViejo.setInformacion(entradaHistorial.getInformacion());
-        entradaHistorialViejo.setTipo(entradaHistorial.getTipo());
-        return entradaHistorialViejo;
+        return mock.updateEntradaHistorial(entradaHistorial);
         
     }
 
     @Override
     public void deleteEntradaHistorial(Long idEntradaHistorial) {
         
-        entradaHistorials.remove( idEntradaHistorial.intValue());
+        mock.deleteEntradaHistorial(idEntradaHistorial);
     }
 
     @Override
     public EntradaHistorialDTO createEntradaHistorial(EntradaHistorialDTO entradaHistorial) {
         
-        if(entradaHistorial.getId() == null)
-        {
-            Long idNuevo = new Long(entradaHistorials.size());
-            entradaHistorial.setId(idNuevo);
-        }
-        entradaHistorials.add(entradaHistorial);
-        return entradaHistorial;
+        return mock.createEntradaHistorial(entradaHistorial);
         
     }
 
     @Override
     public List<EntradaHistorialDTO> getAll() {
 
-       return entradaHistorials;
+       return mock.getAll();
 
     }
     

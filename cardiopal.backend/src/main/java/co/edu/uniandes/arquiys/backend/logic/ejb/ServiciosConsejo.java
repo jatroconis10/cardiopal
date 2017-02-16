@@ -7,6 +7,7 @@ package co.edu.uniandes.arquiys.backend.logic.ejb;
 
 import co.edu.uniandes.arquiys.backend.dto.ConsejoDTO;
 import co.edu.uniandes.arquiys.backend.logic.interfaces.IServiciosConsejo;
+import co.edu.uniandes.arquiys.backend.logic.mocks.ConsejoMock;
 import java.util.ArrayList;
 import java.util.List;
 import javax.ejb.Stateless;
@@ -19,48 +20,38 @@ import javax.ejb.Stateless;
 @Stateless
 public class ServiciosConsejo implements IServiciosConsejo {
 
-    private List<ConsejoDTO> consejos;
+    private ConsejoMock mock;
     public ServiciosConsejo()
             {
-                consejos = new ArrayList<ConsejoDTO>();
+                mock = new ConsejoMock();
             }
     @Override
     public ConsejoDTO getConsejo(Long idConsejo) {
-        return consejos.get(idConsejo.intValue() );
+        return mock.getConsejo(idConsejo);
     }
 
     @Override
     public ConsejoDTO updateConsejo(ConsejoDTO consejo) {
-        ConsejoDTO consejoViejo = consejos.get( consejo.getId().intValue());
-        
-        consejoViejo.setConsejo(consejo.getConsejo());
-        return consejoViejo;
+        return mock.updateConsejo(consejo);
         
     }
 
     @Override
     public void deleteConsejo(Long idConsejo) {
         
-        consejos.remove( idConsejo.intValue());
+        mock.deleteConsejo(idConsejo);
     }
 
     @Override
     public ConsejoDTO createConsejo(ConsejoDTO consejo) {
         
-        if(consejo.getId() == null)
-        {
-            Long idNuevo = new Long(consejos.size());
-            consejo.setId(idNuevo);
-        }
-        consejos.add(consejo);
-        return consejo;
-        
+        return mock.createConsejo(consejo);
     }
 
     @Override
     public List<ConsejoDTO> getAll() {
 
-       return consejos;
+       return mock.getAll();
 
     }
     

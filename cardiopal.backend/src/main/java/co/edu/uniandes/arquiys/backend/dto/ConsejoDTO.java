@@ -18,6 +18,10 @@ public class ConsejoDTO {
     public ConsejoDTO(String consejo ){
         this.consejo = consejo;
     }
+    public ConsejoDTO()
+    {
+        
+    }
     
      public Long getId() {
         return id;

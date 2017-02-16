@@ -7,6 +7,7 @@ package co.edu.uniandes.arquiys.backend.logic.ejb;
 
 import co.edu.uniandes.arquiys.backend.dto.MarcapasoDTO;
 import co.edu.uniandes.arquiys.backend.logic.interfaces.IServiciosMarcapaso;
+import co.edu.uniandes.arquiys.backend.logic.mocks.MarcapasoMock;
 import java.util.ArrayList;
 import java.util.List;
 import javax.ejb.Stateless;
@@ -19,48 +20,38 @@ import javax.ejb.Stateless;
 @Stateless
 public class ServiciosMarcapaso implements IServiciosMarcapaso {
 
-    private List<MarcapasoDTO> marcapasos;
+    private MarcapasoMock mock;
     public ServiciosMarcapaso()
             {
-                marcapasos = new ArrayList<MarcapasoDTO>();
+                mock = new MarcapasoMock();
             }
     @Override
     public MarcapasoDTO getMarcapaso(Long idMarcapaso) {
-        return marcapasos.get(idMarcapaso.intValue() );
+        return mock.getMarcapaso(idMarcapaso);
     }
 
     @Override
     public MarcapasoDTO updateMarcapaso(MarcapasoDTO marcapaso) {
-        MarcapasoDTO marcapasoViejo = marcapasos.get( marcapaso.getId().intValue());
-        
-        marcapasoViejo.setFrecuencia(marcapaso.getFrecuencia());
-        return marcapasoViejo;
-        
+        return mock.updateMarcapaso(marcapaso);
     }
 
     @Override
     public void deleteMarcapaso(Long idMarcapaso) {
         
-        marcapasos.remove( idMarcapaso.intValue());
+        mock.deleteMarcapaso(idMarcapaso);
     }
 
     @Override
     public MarcapasoDTO createMarcapaso(MarcapasoDTO marcapaso) {
         
-        if(marcapaso.getId() == null)
-        {
-            Long idNuevo = new Long(marcapasos.size());
-            marcapaso.setId(idNuevo);
-        }
-        marcapasos.add(marcapaso);
-        return marcapaso;
+        return mock.createMarcapaso(marcapaso);
         
     }
 
     @Override
     public List<MarcapasoDTO> getAll() {
 
-       return marcapasos;
+       return mock.getAll();
 
     }
     

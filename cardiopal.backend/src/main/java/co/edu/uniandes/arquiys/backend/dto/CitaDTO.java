@@ -23,6 +23,10 @@ public class CitaDTO {
     {
         this.usuario = usuario;
     }
+    public CitaDTO()
+    {
+        
+    }
        public Long getId() {
         return Id;
     }

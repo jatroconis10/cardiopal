@@ -7,6 +7,7 @@ package co.edu.uniandes.arquiys.backend.logic.ejb;
 
 import co.edu.uniandes.arquiys.backend.dto.CitaDTO;
 import co.edu.uniandes.arquiys.backend.logic.interfaces.IServiciosCita;
+import co.edu.uniandes.arquiys.backend.logic.mocks.CitaMock;
 import java.util.ArrayList;
 import java.util.List;
 import javax.ejb.Stateless;
@@ -19,49 +20,39 @@ import javax.ejb.Stateless;
 @Stateless
 public class ServiciosCita implements IServiciosCita {
 
-    private List<CitaDTO> citas;
+    private CitaMock citaMock;
     public ServiciosCita()
             {
-                citas = new ArrayList<CitaDTO>();
+                citaMock = new CitaMock();
             }
     @Override
     public CitaDTO getCita(Long idCita) {
-        return citas.get(idCita.intValue() );
+        return citaMock.getCita(idCita);
     }
 
     @Override
     public CitaDTO updateCita(CitaDTO cita) {
-        CitaDTO citaViejo = citas.get( cita.getId().intValue());
-        
-        citaViejo.setFecha(cita.getFecha());
-        citaViejo.setUsuario(cita.getUsuario());
-        return citaViejo;
+        return citaMock.updateCita(cita);
         
     }
 
     @Override
     public void deleteCita(Long idCita) {
         
-        citas.remove( idCita.intValue());
+        citaMock.deleteCita(idCita);
     }
 
     @Override
     public CitaDTO createCita(CitaDTO cita) {
         
-        if(cita.getId() == null)
-        {
-            Long idNuevo = new Long(citas.size());
-            cita.setId(idNuevo);
-        }
-        citas.add(cita);
-        return cita;
+       return citaMock.createCita(cita);
         
     }
 
     @Override
     public List<CitaDTO> getAll() {
 
-       return citas;
+       return citaMock.getAll();
 
     }
     

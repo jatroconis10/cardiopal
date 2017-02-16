@@ -13,9 +13,14 @@ public class EmergenciaDTO {
     private Long id;
     private String descripcion;
     
-    public EmergenciaDTO(String descripcion)
+    public EmergenciaDTO(Long id, String descripcion)
     {
+        this.id = id;
         this.descripcion = descripcion;
+    }
+    public EmergenciaDTO()
+    {
+        
     }
 
     public Long getId() {
