@@ -25,7 +25,7 @@ import javax.ws.rs.core.MediaType;
  *
  * @author sf.munera10
  */
-@Path("emergencia")
+@Path("emergencias")
 @Stateless
 @Consumes(MediaType.APPLICATION_JSON)
 @Produces(MediaType.APPLICATION_JSON)
@@ -35,13 +35,12 @@ public class EmergenciaService {
     private IServiciosEmergencia emergenciaEjb;
     
     @GET
-    @Path("/emergencias")
     public List<EmergenciaDTO> getAllEmergencias() {
         return emergenciaEjb.getAll();
     }
     
     @GET
-    @Path("/buscar/{id: \\d+}")
+    @Path("/{id: \\d+}")
     public EmergenciaDTO getEmergencia(@PathParam("id") Long id) throws ErrorDeNegocioException{
         return emergenciaEjb.getEmergencia(id);
     }
@@ -59,7 +58,7 @@ public class EmergenciaService {
     }
 
     @DELETE
-    @Path("/borrar/{id: \\d+}")
+    @Path("/{id: \\d+}")
     public void deleteEmergencia(@PathParam("id") Long id) throws ErrorDeNegocioException {
         emergenciaEjb.deleteEmergencia(id);
     }

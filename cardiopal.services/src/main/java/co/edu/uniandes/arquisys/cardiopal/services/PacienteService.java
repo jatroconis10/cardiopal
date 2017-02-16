@@ -25,7 +25,7 @@ import javax.ws.rs.core.MediaType;
  *
  * @author ja.troconis10
  */
-@Path("paciente")
+@Path("pacientes")
 @Stateless
 @Consumes(MediaType.APPLICATION_JSON)
 @Produces(MediaType.APPLICATION_JSON)
@@ -35,13 +35,12 @@ public class PacienteService {
     private IServiciosPaciente pacienteEjb;
     
     @GET
-    @Path("pacientes")
     public List<PacienteDTO> getAllPacientes() {
         return pacienteEjb.getAll();
     }
     
     @GET
-    @Path("/buscar/{id: \\d+}")
+    @Path("/{id: \\d+}")
     public PacienteDTO getPaciente(@PathParam("id") Long id) throws ErrorDeNegocioException{
         return pacienteEjb.getPaciente(id);
     }
@@ -59,7 +58,7 @@ public class PacienteService {
     }
 
     @DELETE
-    @Path("/borrar/{id: \\d+}")
+    @Path("/{id: \\d+}")
     public void deletePaciente(@PathParam("id") Long id) throws ErrorDeNegocioException {
         pacienteEjb.deletePaciente(id);
     }

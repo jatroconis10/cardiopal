@@ -25,7 +25,7 @@ import javax.ws.rs.core.MediaType;
  *
  * @author sf.munera10
  */
-@Path("marcapaso")
+@Path("marcapasos")
 @Stateless
 @Consumes(MediaType.APPLICATION_JSON)
 @Produces(MediaType.APPLICATION_JSON)
@@ -35,13 +35,12 @@ public class MarcapasoService {
     private IServiciosMarcapaso marcapasoEjb;
     
     @GET
-    @Path("/marcapasos")
     public List<MarcapasoDTO> getAllMarcapasos() {
         return marcapasoEjb.getAll();
     }
     
     @GET
-    @Path("/buscar/{id: \\d+}")
+    @Path("/{id: \\d+}")
     public MarcapasoDTO getMarcapaso(@PathParam("id") Long id) throws ErrorDeNegocioException{
         return marcapasoEjb.getMarcapaso(id);
     }
@@ -59,7 +58,7 @@ public class MarcapasoService {
     }
 
     @DELETE
-    @Path("/borrar/{id: \\d+}")
+    @Path("/{id: \\d+}")
     public void deleteMarcapaso(@PathParam("id") Long id) throws ErrorDeNegocioException {
         marcapasoEjb.deleteMarcapaso(id);
     }
