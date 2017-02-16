@@ -25,7 +25,7 @@ import javax.ws.rs.core.MediaType;
  *
  * @author sf.munera10
  */
-@Path("cita")
+@Path("citas")
 @Stateless
 @Consumes(MediaType.APPLICATION_JSON)
 @Produces(MediaType.APPLICATION_JSON)
@@ -35,13 +35,12 @@ public class CitaService {
     private IServiciosCita citaEjb;
     
     @GET
-    @Path("/citas")
     public List<CitaDTO> getAllCitas() {
         return citaEjb.getAll();
     }
     
     @GET
-    @Path("/buscar/{id: \\d+}")
+    @Path("/{id: \\d+}")
     public CitaDTO getCita(@PathParam("id") Long id) throws ErrorDeNegocioException{
         return citaEjb.getCita(id);
     }
@@ -59,7 +58,7 @@ public class CitaService {
     }
 
     @DELETE
-    @Path("/borrar/{id: \\d+}")
+    @Path("/{id: \\d+}")
     public void deleteCita(@PathParam("id") Long id) throws ErrorDeNegocioException {
         citaEjb.deleteCita(id);
     }

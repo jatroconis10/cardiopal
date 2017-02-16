@@ -25,7 +25,7 @@ import javax.ws.rs.core.MediaType;
  *
  * @author sf.munera10
  */
-@Path("frecuencia")
+@Path("frecuencias")
 @Stateless
 @Consumes(MediaType.APPLICATION_JSON)
 @Produces(MediaType.APPLICATION_JSON)
@@ -35,13 +35,12 @@ public class SensorFreqService {
     private IServiciosSensorFreq frecuenciaEjb;
 
     @GET
-    @Path("/frecuencias")
     public List<SensorFreqDTO> getAllSensorFreqs() {
         return frecuenciaEjb.getAll();
     }
 
     @GET
-    @Path("/buscar/{id: \\d+}")
+    @Path("/{id: \\d+}")
     public SensorFreqDTO getSensorFreq(@PathParam("id") Long id) throws ErrorDeNegocioException {
         return frecuenciaEjb.getSensorFreq(id);
     }
@@ -59,7 +58,7 @@ public class SensorFreqService {
     }
 
     @DELETE
-    @Path("/borrar/{id: \\d+}")
+    @Path("/{id: \\d+}")
     public void deleteSensorFreq(@PathParam("id") Long id) throws ErrorDeNegocioException {
         frecuenciaEjb.deleteSensorFreq(id);
     }

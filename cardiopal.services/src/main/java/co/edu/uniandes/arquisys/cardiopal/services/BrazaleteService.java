@@ -25,7 +25,7 @@ import javax.ws.rs.core.MediaType;
  *
  * @author sf.munera10
  */
-@Path("brazalete")
+@Path("brazaletes")
 @Stateless
 @Consumes(MediaType.APPLICATION_JSON)
 @Produces(MediaType.APPLICATION_JSON)
@@ -35,13 +35,12 @@ public class BrazaleteService {
     private IServiciosBrazalete brazaleteEjb;
 
     @GET
-    @Path("/brazaletes")
     public List<BrazaleteDTO> getAllBrazaletes() {
         return brazaleteEjb.getAll();
     }
     
     @GET
-    @Path("/buscar/{id: \\d+}")
+    @Path("/{id: \\d+}")
     public BrazaleteDTO getBrazalete(@PathParam("id") Long id) throws ErrorDeNegocioException{
         return brazaleteEjb.getBrazalete(id);
     }
@@ -59,7 +58,7 @@ public class BrazaleteService {
     }
 
     @DELETE
-    @Path("/borrar/{id: \\d+}")
+    @Path("/{id: \\d+}")
     public void deleteBrazalete(@PathParam("id") Long id) throws ErrorDeNegocioException {
         brazaleteEjb.deleteBrazalete(id);
     }

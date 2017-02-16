@@ -25,7 +25,7 @@ import javax.ws.rs.core.MediaType;
  *
  * @author sf.munera10
  */
-@Path("consejo")
+@Path("consejos")
 @Stateless
 @Consumes(MediaType.APPLICATION_JSON)
 @Produces(MediaType.APPLICATION_JSON)
@@ -35,13 +35,12 @@ public class ConsejoService {
     private IServiciosConsejo consejoEjb;
     
     @GET
-    @Path("/consejos")
     public List<ConsejoDTO> getAllConsejos() {
         return consejoEjb.getAll();
     }
     
     @GET
-    @Path("/buscar/{id: \\d+}")
+    @Path("/{id: \\d+}")
     public ConsejoDTO getConsejo(@PathParam("id") Long id) throws ErrorDeNegocioException{
         return consejoEjb.getConsejo(id);
     }
@@ -59,7 +58,7 @@ public class ConsejoService {
     }
 
     @DELETE
-    @Path("/borrar/{id: \\d+}")
+    @Path("/{id: \\d+}")
     public void deleteConsejo(@PathParam("id") Long id) throws ErrorDeNegocioException {
         consejoEjb.deleteConsejo(id);
     }

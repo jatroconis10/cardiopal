@@ -5,14 +5,11 @@
  */
 package co.edu.uniandes.arquiys.backend.dto;
 
-import co.edu.uniandes.arquiys.backend.logic.interfaces.IServiciosSensorFreq;
-import java.util.List;
-
 /**
  *
  * @author sf.munera10
  */
-public class SensorFreqDTO implements IServiciosSensorFreq{
+public class SensorFreqDTO{
     
     private Long id;
     
@@ -64,30 +61,5 @@ public class SensorFreqDTO implements IServiciosSensorFreq{
      */
     public void setnPulsaciones(Long nPulsaciones) {
         this.nPulsaciones = nPulsaciones;
-    }
-
-    @Override
-    public SensorFreqDTO getSensorFreq(Long idSensorFreq) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-    }
-
-    @Override
-    public SensorFreqDTO updateSensorFreq(SensorFreqDTO brazalete) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-    }
-
-    @Override
-    public void deleteSensorFreq(Long idSensorFreq) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-    }
-
-    @Override
-    public SensorFreqDTO createSensorFreq(SensorFreqDTO brazalete) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-    }
-
-    @Override
-    public List<SensorFreqDTO> getAll() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 }

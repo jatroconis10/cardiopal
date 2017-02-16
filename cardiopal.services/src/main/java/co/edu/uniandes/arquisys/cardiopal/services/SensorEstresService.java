@@ -35,13 +35,12 @@ public class SensorEstresService {
     private IServiciosSensorEstres estresEjb;
 
     @GET
-    @Path("/nivelesestres")
     public List<SensorEstresDTO> getAllSensorEstress() {
         return estresEjb.getAllMedidas();
     }
 
     @GET
-    @Path("/buscar/{id: \\d+}")
+    @Path("/{id: \\d+}")
     public SensorEstresDTO getSensorEstres(@PathParam("id") Long id) throws ErrorDeNegocioException {
         return estresEjb.getMedidaSensor(id);
     }
@@ -59,7 +58,7 @@ public class SensorEstresService {
     }
 
     @DELETE
-    @Path("/borrar/{id: \\d+}")
+    @Path("/{id: \\d+}")
     public void deleteSensorEstres(@PathParam("id") Long id) throws ErrorDeNegocioException {
         estresEjb.deleteMedidaSensor(id);
     }

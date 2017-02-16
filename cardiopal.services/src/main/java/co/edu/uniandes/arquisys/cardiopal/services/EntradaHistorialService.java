@@ -25,7 +25,7 @@ import javax.ws.rs.core.MediaType;
  *
  * @author sf.munera10
  */
-@Path("entradaHistorial")
+@Path("entradasHistorial")
 @Stateless
 @Consumes(MediaType.APPLICATION_JSON)
 @Produces(MediaType.APPLICATION_JSON)
@@ -35,13 +35,12 @@ public class EntradaHistorialService {
     private IServiciosEntradaHistorial entradaHistorialEjb;
     
     @GET
-    @Path("/entradashistoriales")
     public List<EntradaHistorialDTO> getAllEntradaHistorials() {
         return entradaHistorialEjb.getAll();
     }
     
     @GET
-    @Path("/buscar/{id: \\d+}")
+    @Path("/{id: \\d+}")
     public EntradaHistorialDTO getEntradaHistorial(@PathParam("id") Long id) throws ErrorDeNegocioException{
         return entradaHistorialEjb.getEntradaHistorial(id);
     }
@@ -59,7 +58,7 @@ public class EntradaHistorialService {
     }
 
     @DELETE
-    @Path("/borrar/{id: \\d+}")
+    @Path("/{id: \\d+}")
     public void deleteEntradaHistorial(@PathParam("id") Long id) throws ErrorDeNegocioException {
         entradaHistorialEjb.deleteEntradaHistorial(id);
     }

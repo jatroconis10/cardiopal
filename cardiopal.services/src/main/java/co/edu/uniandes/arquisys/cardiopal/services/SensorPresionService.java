@@ -25,7 +25,7 @@ import javax.ws.rs.core.MediaType;
  *
  * @author sf.munera10
  */
-@Path("presion")
+@Path("presiones")
 @Stateless
 @Consumes(MediaType.APPLICATION_JSON)
 @Produces(MediaType.APPLICATION_JSON)
@@ -35,13 +35,12 @@ public class SensorPresionService {
     private IServiciosSensorPresion presionEjb;
 
     @GET
-    @Path("/presiones")
     public List<SensorPresionDTO> getAllSensorPresions() {
         return presionEjb.getAll();
     }
 
     @GET
-    @Path("/buscar/{id: \\d+}")
+    @Path("/{id: \\d+}")
     public SensorPresionDTO getSensorPresion(@PathParam("id") Long id) throws ErrorDeNegocioException {
         return presionEjb.getSensorPresion(id);
     }
@@ -59,7 +58,7 @@ public class SensorPresionService {
     }
 
     @DELETE
-    @Path("/borrar/{id: \\d+}")
+    @Path("/{id: \\d+}")
     public void deleteSensorPresion(@PathParam("id") Long id) throws ErrorDeNegocioException {
         presionEjb.deleteSensorPresion(id);
     }

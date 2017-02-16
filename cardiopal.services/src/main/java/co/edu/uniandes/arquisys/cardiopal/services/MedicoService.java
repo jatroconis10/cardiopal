@@ -25,7 +25,7 @@ import javax.ws.rs.core.MediaType;
  *
  * @author sf.munera10
  */
-@Path("medico")
+@Path("medicos")
 @Stateless
 @Consumes(MediaType.APPLICATION_JSON)
 @Produces(MediaType.APPLICATION_JSON)
@@ -35,13 +35,12 @@ public class MedicoService {
     private IServiciosMedico medicoEjb;
     
     @GET
-    @Path("/medicos")
     public List<MedicoDTO> getAllMedicos() {
         return medicoEjb.getAll();
     }
     
     @GET
-    @Path("/buscar/{id: \\d+}")
+    @Path("/{id: \\d+}")
     public MedicoDTO getMedico(@PathParam("id") Long id) throws ErrorDeNegocioException{
         return medicoEjb.getMedico(id);
     }
@@ -59,7 +58,7 @@ public class MedicoService {
     }
 
     @DELETE
-    @Path("/borrar/{id: \\d+}")
+    @Path("/{id: \\d+}")
     public void deleteMedico(@PathParam("id") Long id) throws ErrorDeNegocioException {
         medicoEjb.deleteMedico(id);
     }
