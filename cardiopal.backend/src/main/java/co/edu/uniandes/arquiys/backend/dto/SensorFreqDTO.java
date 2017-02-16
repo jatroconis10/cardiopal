@@ -7,6 +7,7 @@ package co.edu.uniandes.arquiys.backend.dto;
 
 import java.util.Date;
 
+
 /**
  *
  * @author sf.munera10
@@ -19,8 +20,16 @@ public class SensorFreqDTO{
     
     private Long nPulsaciones;
     
-    private Date fecha;
     
+    private Date fecha;
+
+    public Date getFecha() {
+        return fecha;
+    }
+
+    public void setFecha(Date fecha) {
+        this.fecha = fecha;
+    }
     public SensorFreqDTO(){
     
     }
@@ -67,17 +76,4 @@ public class SensorFreqDTO{
         this.nPulsaciones = nPulsaciones;
     }
 
-    /**
-     * @return the fecha
-     */
-    public Date getFecha() {
-        return fecha;
-    }
-
-    /**
-     * @param fecha the fecha to set
-     */
-    public void setFecha(Date fecha) {
-        this.fecha = fecha;
-    }
 }

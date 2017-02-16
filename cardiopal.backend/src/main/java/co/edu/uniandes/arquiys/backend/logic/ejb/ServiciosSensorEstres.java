@@ -8,6 +8,7 @@ package co.edu.uniandes.arquiys.backend.logic.ejb;
 import co.edu.uniandes.arquiys.backend.dto.SensorEstresDTO;
 import co.edu.uniandes.arquiys.backend.logic.interfaces.IServiciosSensorEstres;
 import co.edu.uniandes.arquiys.backend.logic.mocks.SensorEstresMock;
+import java.util.Date;
 import java.util.List;
 import javax.ejb.Stateless;
 
@@ -40,8 +41,8 @@ public class ServiciosSensorEstres implements IServiciosSensorEstres {
     }
 
     @Override
-    public SensorEstresDTO createMedidaSensor(SensorEstresDTO sensor) {
-        return mock.createMedidaSensor(sensor);
+    public SensorEstresDTO createMedidaSensor(Long idHistorial, SensorEstresDTO sensor) {
+        return mock.createMedidaSensor(idHistorial,sensor);
     }
 
     @Override

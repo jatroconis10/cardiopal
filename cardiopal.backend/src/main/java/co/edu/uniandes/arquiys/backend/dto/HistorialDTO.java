@@ -5,6 +5,7 @@
  */
 package co.edu.uniandes.arquiys.backend.dto;
 
+import java.util.ArrayList;
 import java.util.List;
 
 /**
@@ -12,6 +13,8 @@ import java.util.List;
  * @author Ricardo
  */
 public class HistorialDTO {
+
+    
     
     private Long id;
     private List<EntradaHistorialDTO> entradas;
@@ -19,6 +22,21 @@ public class HistorialDTO {
     private List<SensorFreqDTO> medicionesFreq;
     private List<SensorPresionDTO> medicionesPres;
 
+    public HistorialDTO()
+    {
+        medicionesEstres = new ArrayList();
+        medicionesFreq = new ArrayList();
+        medicionesPres = new ArrayList();
+        entradas = new ArrayList();
+    }
+    public HistorialDTO(Long id) {
+        this.id = id;
+        medicionesEstres = new ArrayList();
+        medicionesFreq = new ArrayList();
+        medicionesPres = new ArrayList();
+        entradas = new ArrayList();
+    }
+    
     public List<EntradaHistorialDTO> getEntradas() {
         return entradas;
     }

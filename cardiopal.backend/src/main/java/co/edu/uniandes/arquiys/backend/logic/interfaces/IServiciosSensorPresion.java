@@ -6,6 +6,7 @@
 package co.edu.uniandes.arquiys.backend.logic.interfaces;
 
 import co.edu.uniandes.arquiys.backend.dto.SensorPresionDTO;
+import java.util.Date;
 import java.util.List;
 import javax.ejb.Local;
 
@@ -19,7 +20,7 @@ public interface IServiciosSensorPresion {
     public SensorPresionDTO getSensorPresion(Long idSensorPresion);
     public SensorPresionDTO updateSensorPresion(SensorPresionDTO sensor);
     public void deleteSensorPresion(Long idSensorPresion);
-    public SensorPresionDTO createSensorPresion(SensorPresionDTO sensor);
+    public SensorPresionDTO createSensorPresion(Long idHistorial,SensorPresionDTO sensor);
     public List<SensorPresionDTO> getAll();
     
 }

@@ -22,9 +22,18 @@ public class PacienteMock  {
     public PacienteMock()
             {
                 pacientes = new ArrayList<PacienteDTO>();
+                pacientes.add(new PacienteDTO(1L,"Pepito"));
             }
     public PacienteDTO getPaciente(Long idPaciente) {
-        return pacientes.get(idPaciente.intValue() );
+        for(int i = 0; i<pacientes.size(); i++)
+        {
+            PacienteDTO paciente = pacientes.get(i);
+            if(paciente.getId() == idPaciente)
+            {
+                return paciente;
+            }
+        }
+        return null;
     }
 
     public PacienteDTO updatePaciente(PacienteDTO paciente) {

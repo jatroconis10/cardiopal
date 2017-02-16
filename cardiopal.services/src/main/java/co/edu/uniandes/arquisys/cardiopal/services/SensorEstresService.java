@@ -8,6 +8,9 @@ package co.edu.uniandes.arquisys.cardiopal.services;
 import co.edu.uniandes.arquiys.backend.dto.SensorEstresDTO;
 import co.edu.uniandes.arquiys.backend.excepciones.ErrorDeNegocioException;
 import co.edu.uniandes.arquiys.backend.logic.interfaces.IServiciosSensorEstres;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
+import java.util.Date;
 import java.util.List;
 import javax.ejb.EJB;
 import javax.ejb.Stateless;
@@ -46,9 +49,12 @@ public class SensorEstresService {
     }
 
     @POST
-    @Path("/agregar")
-    public SensorEstresDTO createSensorEstres(SensorEstresDTO br) {
-        return estresEjb.createMedidaSensor(br);
+    @Path("fecha/{fecha}/agregar/")
+    public SensorEstresDTO createSensorEstres(@PathParam("pacienteId") Long idHistorial, SensorEstresDTO br, @PathParam("fecha") String fecha) throws ParseException {
+        SimpleDateFormat format = new SimpleDateFormat("dd-MM-yyyy-hh:mm:ss-a");
+        Date date = format.parse(fecha);
+        br.setFecha(date);
+        return estresEjb.createMedidaSensor(idHistorial, br);
     }
 
     @PUT

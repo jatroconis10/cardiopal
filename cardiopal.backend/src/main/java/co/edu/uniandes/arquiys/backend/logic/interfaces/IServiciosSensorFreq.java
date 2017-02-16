@@ -6,6 +6,7 @@
 package co.edu.uniandes.arquiys.backend.logic.interfaces;
 
 import co.edu.uniandes.arquiys.backend.dto.SensorFreqDTO;
+import java.util.Date;
 import java.util.List;
 import javax.ejb.Local;
 
@@ -19,7 +20,7 @@ public interface IServiciosSensorFreq {
     public SensorFreqDTO getSensorFreq(Long idSensorFreq);
     public SensorFreqDTO updateSensorFreq(SensorFreqDTO sensor);
     public void deleteSensorFreq(Long idSensorFreq);
-    public SensorFreqDTO createSensorFreq(SensorFreqDTO sensor);
+    public SensorFreqDTO createSensorFreq(Long idHistorial, SensorFreqDTO sensor);
     public List<SensorFreqDTO> getAll();
     
 }

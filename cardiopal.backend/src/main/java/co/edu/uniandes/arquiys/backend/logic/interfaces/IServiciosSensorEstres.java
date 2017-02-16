@@ -6,6 +6,7 @@
 package co.edu.uniandes.arquiys.backend.logic.interfaces;
 
 import co.edu.uniandes.arquiys.backend.dto.SensorEstresDTO;
+import java.util.Date;
 import java.util.List;
 import javax.ejb.Local;
 
@@ -19,7 +20,7 @@ public interface IServiciosSensorEstres {
     public SensorEstresDTO getMedidaSensor(Long idSensorEstres);
     public SensorEstresDTO updateMedidaSensor(SensorEstresDTO sensor);
     public void deleteMedidaSensor(Long idSensorEstres);
-    public SensorEstresDTO createMedidaSensor(SensorEstresDTO sensor);
+    public SensorEstresDTO createMedidaSensor(Long idHistorial, SensorEstresDTO sensor);
     public List<SensorEstresDTO> getAllMedidas();
    
 }

@@ -20,5 +20,5 @@ public interface IServiciosPaciente {
     public PacienteDTO getPaciente(Long idPaciente);
     public PacienteDTO updatePaciente(PacienteDTO paciente);
     public void deletePaciente(Long idPaciente);
-    public ArrayList<PacienteDTO> getAll();
+    public List<PacienteDTO> getAll();
 }

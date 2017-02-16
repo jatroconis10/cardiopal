@@ -9,6 +9,8 @@ import co.edu.uniandes.arquiys.backend.dto.SensorFreqDTO;
 import co.edu.uniandes.arquiys.backend.logic.interfaces.IServiciosSensorFreq;
 import co.edu.uniandes.arquiys.backend.logic.mocks.SensorFreqMock;
 import java.util.List;
+import java.util.Date;
+
 import javax.ejb.Stateless;
 
 /**
@@ -40,8 +42,8 @@ public class ServiciosSensorFreq implements IServiciosSensorFreq {
     }
 
     @Override
-    public SensorFreqDTO createSensorFreq(SensorFreqDTO sensor) {
-        return mock.createSensorFreq(sensor);
+    public SensorFreqDTO createSensorFreq(Long idHistorial,SensorFreqDTO sensor) {
+        return mock.createSensorFreq(idHistorial, sensor);
     }
 
     @Override

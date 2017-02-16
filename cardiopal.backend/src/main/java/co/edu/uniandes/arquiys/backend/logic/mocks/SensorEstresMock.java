@@ -17,14 +17,26 @@ import java.util.List;
 public class SensorEstresMock implements IServiciosSensorEstres {
 
     private List<SensorEstresDTO> sensores;
+    private PacienteMock pacienteMock;
+    private HistorialMock historialMock;
 
     public SensorEstresMock() {
         sensores = new ArrayList<SensorEstresDTO>();
+        pacienteMock = new PacienteMock();
+        historialMock = new HistorialMock();
     }
 
     @Override
     public SensorEstresDTO getMedidaSensor(Long idSensorEstres) {
-        return sensores.get(idSensorEstres.intValue());
+        for(int i = 0; i<sensores.size(); i++)
+        {
+            SensorEstresDTO sensor = sensores.get(i);
+            if(sensor.getId() == idSensorEstres)
+            {
+                return sensor;
+            }
+        }
+        return null;
     }
 
     @Override
@@ -40,12 +52,13 @@ public class SensorEstresMock implements IServiciosSensorEstres {
     }
 
     @Override
-    public SensorEstresDTO createMedidaSensor(SensorEstresDTO sensor) {
+    public SensorEstresDTO createMedidaSensor(Long idHistorial,SensorEstresDTO sensor) {
         if (sensor.getId() == null) {
             Long idNuevo = new Long(sensores.size());
             sensor.setId(idNuevo);
         }
         sensores.add(sensor);
+        historialMock.agregarSensorEstres(idHistorial,sensor);
         return sensor;
     }
 

@@ -9,6 +9,8 @@ import co.edu.uniandes.arquiys.backend.dto.SensorPresionDTO;
 import co.edu.uniandes.arquiys.backend.logic.interfaces.IServiciosSensorPresion;
 import co.edu.uniandes.arquiys.backend.logic.mocks.SensorPresionMock;
 import java.util.List;
+import java.util.Date;
+
 import javax.ejb.Stateless;
 
 /**
@@ -40,8 +42,8 @@ public class ServiciosSensorPresion implements IServiciosSensorPresion {
     }
 
     @Override
-    public SensorPresionDTO createSensorPresion(SensorPresionDTO sensor) {
-        return mock.createSensorPresion(sensor);
+    public SensorPresionDTO createSensorPresion(Long idHistorial,SensorPresionDTO sensor) {
+        return mock.createSensorPresion(idHistorial, sensor);
     }
 
     @Override

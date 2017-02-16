@@ -17,14 +17,26 @@ import java.util.List;
 public class SensorPresionMock implements IServiciosSensorPresion {
 
     private List<SensorPresionDTO> sensores;
+    private PacienteMock pacienteMock;
+    private HistorialMock historialMock;
 
     public SensorPresionMock() {
         sensores = new ArrayList<SensorPresionDTO>();
+        pacienteMock = new PacienteMock();
+        historialMock = new HistorialMock();
     }
 
     @Override
     public SensorPresionDTO getSensorPresion(Long idSensorPresion) {
-        return sensores.get(idSensorPresion.intValue());
+         for(int i = 0; i<sensores.size(); i++)
+        {
+            SensorPresionDTO sensor = sensores.get(i);
+            if(sensor.getId() == idSensorPresion)
+            {
+                return sensor;
+            }
+        }
+        return null;
     }
 
     @Override
@@ -41,12 +53,13 @@ public class SensorPresionMock implements IServiciosSensorPresion {
     }
 
     @Override
-    public SensorPresionDTO createSensorPresion(SensorPresionDTO sensor) {
+    public SensorPresionDTO createSensorPresion(Long idHistorial, SensorPresionDTO sensor) {
         if(sensor.getId() == null){
             Long idNuevo = new Long(sensores.size());
             sensor.setId(idNuevo);
         }
         sensores.add(sensor);
+        historialMock.agregarSensorPresion(idHistorial,sensor);
         return sensor;
     }
 

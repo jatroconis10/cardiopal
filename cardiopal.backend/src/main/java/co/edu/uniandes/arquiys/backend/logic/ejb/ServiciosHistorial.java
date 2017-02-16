@@ -7,6 +7,7 @@ package co.edu.uniandes.arquiys.backend.logic.ejb;
 
 import co.edu.uniandes.arquiys.backend.dto.HistorialDTO;
 import co.edu.uniandes.arquiys.backend.logic.interfaces.IServiciosHistorial;
+import co.edu.uniandes.arquiys.backend.logic.mocks.HistorialMock;
 import java.util.ArrayList;
 import java.util.List;
 import javax.ejb.Stateless;
@@ -19,49 +20,39 @@ import javax.ejb.Stateless;
 @Stateless
 public class ServiciosHistorial implements IServiciosHistorial {
 
-    private List<HistorialDTO> historials;
+
+    private HistorialMock historialMock;
     public ServiciosHistorial()
             {
-                historials = new ArrayList<HistorialDTO>();
+                historialMock = new HistorialMock();
             }
     @Override
     public HistorialDTO getHistorial(Long idHistorial) {
-        return historials.get(idHistorial.intValue() );
+        return historialMock.getHistorial(idHistorial);
     }
 
     @Override
     public HistorialDTO updateHistorial(HistorialDTO historial) {
-        HistorialDTO historialViejo = historials.get( historial.getId().intValue());
-        
-        historialViejo.setEntradas(historial.getEntradas());
-        return historialViejo;
+       return historialMock.updateHistorial(historial);
         
     }
 
     @Override
     public void deleteHistorial(Long idHistorial) {
-        
-        historials.remove( idHistorial.intValue());
+        historialMock.deleteHistorial(idHistorial);
     }
 
     @Override
     public HistorialDTO createHistorial(HistorialDTO historial) {
         
-        if(historial.getId() == null)
-        {
-            Long idNuevo = new Long(historials.size());
-            historial.setId(idNuevo);
-        }
-        historials.add(historial);
-        return historial;
+       return historialMock.createHistorial(historial);
         
     }
 
     @Override
     public List<HistorialDTO> getAll() {
 
-       return historials;
-
+        return historialMock.getAll();
     }
     
 }

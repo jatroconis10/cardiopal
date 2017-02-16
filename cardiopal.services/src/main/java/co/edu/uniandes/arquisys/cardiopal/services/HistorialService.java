@@ -68,8 +68,8 @@ public class HistorialService {
     
     @GET
     @Path("rango-fecha")
-    public HistorialDTO getRegistroSensores(@DefaultValue("1000") @QueryParam("from") Date from,
-            @DefaultValue("999")@QueryParam("to") Date to){
+    public HistorialDTO getRegistroSensores(@QueryParam("from") Date from,
+            @QueryParam("to") Date to){
         return null;
     }
 }

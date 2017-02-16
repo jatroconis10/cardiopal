@@ -7,6 +7,7 @@ package co.edu.uniandes.arquiys.backend.logic.ejb;
 
 import co.edu.uniandes.arquiys.backend.dto.PacienteDTO;
 import co.edu.uniandes.arquiys.backend.logic.interfaces.IServiciosPaciente;
+import co.edu.uniandes.arquiys.backend.logic.mocks.PacienteMock;
 import java.util.ArrayList;
 import java.util.List;
 import javax.ejb.Stateless;
@@ -19,52 +20,39 @@ import javax.ejb.Stateless;
 @Stateless
 public class ServiciosPaciente implements IServiciosPaciente {
 
-    private ArrayList<PacienteDTO> pacientes;
+    public PacienteMock pacienteMock;
     public ServiciosPaciente()
             {
-                pacientes = new ArrayList<PacienteDTO>();
+                pacienteMock = new PacienteMock();
             }
     @Override
     public PacienteDTO getPaciente(Long idPaciente) {
-        return pacientes.get(idPaciente.intValue() );
+        return pacienteMock.getPaciente(idPaciente);
     }
 
     @Override
     public PacienteDTO updatePaciente(PacienteDTO paciente) {
-        PacienteDTO pacienteViejo = pacientes.get( paciente.getId().intValue());
-        
-        pacienteViejo.setNombre(paciente.getNombre());
-        pacienteViejo.setBrazalete(paciente.getBrazalete());
-        pacienteViejo.setCitas(paciente.getCitas());
-        pacienteViejo.setConsejos(paciente.getConsejos());
-        pacienteViejo.setMedicos(paciente.getMedicos());
-        return pacienteViejo;
+        return pacienteMock.updatePaciente(paciente);
         
     }
 
     @Override
     public void deletePaciente(Long idPaciente) {
         
-        pacientes.remove( idPaciente.intValue());
+        pacienteMock.deletePaciente(idPaciente);
     }
 
     @Override
     public PacienteDTO createPaciente(PacienteDTO paciente) {
         
-        if(paciente.getId() == null)
-        {
-            Long idNuevo = new Long(pacientes.size());
-            paciente.setId(idNuevo);
-        }
-        pacientes.add(paciente);
-        return paciente;
+       return pacienteMock.createPaciente(paciente);
         
     }
 
     @Override
-    public ArrayList<PacienteDTO> getAll() {
+    public List<PacienteDTO> getAll() {
 
-       return pacientes;
+       return pacienteMock.getAll();
 
     }
     

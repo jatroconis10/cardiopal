@@ -36,20 +36,15 @@ public class PacienteDTO {
 
     }
 
-    /**
-     * Constructor de la clase (con argumentos)
-     * @param nombre
-     */
-    public PacienteDTO(String nombre)
-    {
+      public PacienteDTO(Long id, String nombre) {
         this.nombre = nombre;
+        this.Id = Id;
     }
 
     //-----------------------------------------------------------
     // Getters y setters
     //-----------------------------------------------------------
-
-      public String getNombre() {
+    public String getNombre() {
         return nombre;
     }
       
