@@ -8,17 +8,20 @@ package co.edu.uniandes.arquisys.cardiopal.services;
 import co.edu.uniandes.arquiys.backend.dto.HistorialDTO;
 import co.edu.uniandes.arquiys.backend.excepciones.ErrorDeNegocioException;
 import co.edu.uniandes.arquiys.backend.logic.interfaces.IServiciosHistorial;
+import java.util.Date;
 import java.util.List;
 import javax.ejb.EJB;
 import javax.ejb.Stateless;
 import javax.ws.rs.Consumes;
 import javax.ws.rs.DELETE;
+import javax.ws.rs.DefaultValue;
 import javax.ws.rs.GET;
 import javax.ws.rs.POST;
 import javax.ws.rs.PUT;
 import javax.ws.rs.Path;
 import javax.ws.rs.PathParam;
 import javax.ws.rs.Produces;
+import javax.ws.rs.QueryParam;
 import javax.ws.rs.core.MediaType;
 
 /**
@@ -63,4 +66,10 @@ public class HistorialService {
         historialEjb.deleteHistorial(id);
     }
     
+    @GET
+    @Path("rango-fecha")
+    public HistorialDTO getRegistroSensores(@DefaultValue("1000") @QueryParam("from") Date from,
+            @DefaultValue("999")@QueryParam("to") Date to){
+        return null;
+    }
 }
