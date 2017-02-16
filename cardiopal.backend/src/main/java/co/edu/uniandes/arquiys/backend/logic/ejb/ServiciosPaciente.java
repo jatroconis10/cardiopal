@@ -19,7 +19,7 @@ import javax.ejb.Stateless;
 @Stateless
 public class ServiciosPaciente implements IServiciosPaciente {
 
-    private List<PacienteDTO> pacientes;
+    private ArrayList<PacienteDTO> pacientes;
     public ServiciosPaciente()
             {
                 pacientes = new ArrayList<PacienteDTO>();
@@ -62,7 +62,7 @@ public class ServiciosPaciente implements IServiciosPaciente {
     }
 
     @Override
-    public List<PacienteDTO> getAll() {
+    public ArrayList<PacienteDTO> getAll() {
 
        return pacientes;
 

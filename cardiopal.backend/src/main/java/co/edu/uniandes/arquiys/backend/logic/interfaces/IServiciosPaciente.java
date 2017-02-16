@@ -6,6 +6,7 @@
 package co.edu.uniandes.arquiys.backend.logic.interfaces;
 
 import co.edu.uniandes.arquiys.backend.dto.PacienteDTO;
+import java.util.ArrayList;
 import java.util.List;
 import javax.ejb.Local;
 /**
@@ -19,5 +20,5 @@ public interface IServiciosPaciente {
     public PacienteDTO getPaciente(Long idPaciente);
     public PacienteDTO updatePaciente(PacienteDTO paciente);
     public void deletePaciente(Long idPaciente);
-    public List<PacienteDTO> getAll();
+    public ArrayList<PacienteDTO> getAll();
 }

@@ -30,6 +30,8 @@ public class SensorFreqMock implements IServiciosSensorFreq{
     @Override
     public SensorFreqDTO updateSensorFreq(SensorFreqDTO sensor){
         SensorFreqDTO sensorViejo = sensores.get(sensor.getId().intValue());
+        sensorViejo.setTiempo(sensor.getnPulsaciones());
+        sensorViejo.setnPulsaciones(sensor.getTiempo());
         return sensorViejo;
     }
 

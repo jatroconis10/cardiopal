@@ -30,6 +30,8 @@ public class SensorPresionMock implements IServiciosSensorPresion {
     @Override
     public SensorPresionDTO updateSensorPresion(SensorPresionDTO sensor) {
         SensorPresionDTO sensorViejo = sensores.get(sensor.getId().intValue());
+        sensorViejo.setPresionDiastolica(sensor.getPresionDiastolica());
+        sensorViejo.setPresionSistolica(sensor.getPresionSistolica());
         return sensorViejo;
     }
 

@@ -30,6 +30,7 @@ public class SensorEstresMock implements IServiciosSensorEstres {
     @Override
     public SensorEstresDTO updateMedidaSensor(SensorEstresDTO sensor) {
         SensorEstresDTO sensorViejo = sensores.get(sensor.getId().intValue());
+        sensorViejo.setVariabilidadCardiaca(sensor.getVariabilidadCardiaca());
         return sensorViejo;
     }
 

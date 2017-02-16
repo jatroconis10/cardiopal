@@ -8,6 +8,7 @@ package co.edu.uniandes.arquisys.cardiopal.services;
 import co.edu.uniandes.arquiys.backend.dto.PacienteDTO;
 import co.edu.uniandes.arquiys.backend.excepciones.ErrorDeNegocioException;
 import co.edu.uniandes.arquiys.backend.logic.interfaces.IServiciosPaciente;
+import java.util.ArrayList;
 import java.util.List;
 import javax.ejb.EJB;
 import javax.ejb.Stateless;
@@ -36,7 +37,7 @@ public class PacienteService {
     
     @GET
     @Path("pacientes")
-    public List<PacienteDTO> getAllPacientes() {
+    public ArrayList<PacienteDTO> getAllPacientes() {
         return pacienteEjb.getAll();
     }
     
