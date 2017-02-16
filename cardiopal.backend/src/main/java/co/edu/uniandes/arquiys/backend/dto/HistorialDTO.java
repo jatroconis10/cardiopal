@@ -15,6 +15,9 @@ public class HistorialDTO {
     
     private Long id;
     private List<EntradaHistorialDTO> entradas;
+    private List<SensorEstresDTO> medicionesEstres;
+    private List<SensorFreqDTO> medicionesFreq;
+    private List<SensorPresionDTO> medicionesPres;
 
     public List<EntradaHistorialDTO> getEntradas() {
         return entradas;
@@ -31,6 +34,28 @@ public class HistorialDTO {
     public void setId(Long id) {
         this.id = id;
     }
-    
-    
+
+    public List<SensorEstresDTO> getMedicionesEstres() {
+        return medicionesEstres;
+    }
+
+    public void setMedicionesEstres(List<SensorEstresDTO> medicionesEstres) {
+        this.medicionesEstres = medicionesEstres;
+    }
+
+    public List<SensorFreqDTO> getMedicionesFreq() {
+        return medicionesFreq;
+    }
+
+    public void setMedicionesFreq(List<SensorFreqDTO> medicionesFreq) {
+        this.medicionesFreq = medicionesFreq;
+    }
+
+    public List<SensorPresionDTO> getMedicionesPres() {
+        return medicionesPres;
+    }
+
+    public void setMedicionesPres(List<SensorPresionDTO> medicionesPres) {
+        this.medicionesPres = medicionesPres;
+    }
 }
