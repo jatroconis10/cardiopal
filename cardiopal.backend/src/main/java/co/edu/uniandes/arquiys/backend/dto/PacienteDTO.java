@@ -38,7 +38,7 @@ public class PacienteDTO {
 
       public PacienteDTO(Long id, String nombre) {
         this.nombre = nombre;
-        this.Id = Id;
+        this.Id = id;
     }
 
     //-----------------------------------------------------------
